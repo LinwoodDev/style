@@ -1,0 +1,33 @@
+.touchable
+    position: relative
+    overflow: hidden
+    transition: background 400ms
+    border: 5px #6200ee
+    background-color: #6200ee
+    outline: 0
+    border-radius: 0.25rem
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3)
+    cursor: pointer
+    z-index: 0
+    zoom: normal
+    width: fit-content
+    &:hover
+        background-color: #6300ee88
+    
+    &:active
+        box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3)
+        outline: 0
+.touchable-light
+    zoom: normal
+    position: absolute
+    border-radius: 50%
+    border: 0
+    transform: scale(.3)
+    box-shadow: 0 0 50px 50px #6200ee
+    width: 50px
+    height: 50px
+    background: #6200ee
+    z-index: -2
+.touchable-light-full
+    transition: transform .35s ease-in-out
+    transform: scale(2)

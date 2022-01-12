@@ -1,4 +1,5 @@
 import React, { MouseEventHandler, ReactElement, useState } from 'react'
+import Touchable from '../Touchable/Touchable';
 import './Button.sass'
 
 export interface ButtonProps {
@@ -17,10 +18,13 @@ export default function Button({ label, size }: ButtonProps): ReactElement {
         const circle = buttonLightRef.current!;
         const diameter = Math.max(button.clientWidth, button.clientHeight);
         const radius = diameter / 2;
+        var zoom = (document.body.style as any).zoom as number || 1;
+        var x = (event.clientX - rect.left - radius) / zoom;
+        var y = (event.clientY - rect.top - radius) / zoom;
+        circle.style.left = `${x}px`;
+        circle.style.top = `${y}px`;
 
-        circle.style.width = circle.style.height = `${diameter}px`;
-        circle.style.left = `${event.pageX - (rect.left)- radius}px`;
-        circle.style.top = `${event.pageY - (rect.top)- radius}px`;
+        circle.style.width = circle.style.height = `${diameter / zoom}px`;
         circle.classList.add("button-light");
     };
     const click = () => {
@@ -33,11 +37,10 @@ export default function Button({ label, size }: ButtonProps): ReactElement {
         setFull(false)
     }
     return (
-        <button className={`button button--${size}`} onMouseMove={moveLight} onClick={click} onMouseOut={leave}>
-            <span className={"button-light" + (full ? " button-light-full" : "")} ref={buttonLightRef} />
-            <span className="button-content">
+        <Touchable onClick={click}>
+            <div className={`button button--${size}`}>
                 {label}
-            </span>
-        </button>
+            </div>
+        </Touchable>
     )
 }
