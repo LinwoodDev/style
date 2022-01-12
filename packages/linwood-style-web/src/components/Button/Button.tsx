@@ -12,14 +12,15 @@ export default function Button({ label, size }: ButtonProps): ReactElement {
 
     const moveLight = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
         const button = event.currentTarget;
+        const rect = button.getBoundingClientRect();
 
         const circle = buttonLightRef.current!;
         const diameter = Math.max(button.clientWidth, button.clientHeight);
         const radius = diameter / 2;
 
         circle.style.width = circle.style.height = `${diameter}px`;
-        circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
-        circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
+        circle.style.left = `${event.pageX - (rect.left)- radius}px`;
+        circle.style.top = `${event.pageY - (rect.top)- radius}px`;
         circle.classList.add("button-light");
     };
     const click = () => {
