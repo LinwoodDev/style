@@ -130,3 +130,6 @@ dist
 .pnp.*
 
 lib
+
+# Storybook
+storybook-static

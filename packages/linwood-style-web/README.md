@@ -1,1 +1,2 @@
-# linwood-style-react
+# Linwood Style for Web
+
