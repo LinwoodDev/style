@@ -2,32 +2,25 @@
     position: relative
     overflow: hidden
     transition: background 400ms
-    border: 5px #6200ee
-    background-color: #6200ee
     outline: 0
-    border-radius: 0.25rem
+    border-radius: 0.5rem
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3)
     cursor: pointer
     z-index: 0
     zoom: normal
+    border: 0
     width: fit-content
+    background: transparent
+    padding: 0.5em
     &:hover
-        background-color: #6300ee88
-    
+        background-color: rgba(200,200,255,0.5)
     &:active
+        background-color: rgba(200,200,255,1)
         box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3)
         outline: 0
-.touchable-light
-    zoom: normal
-    position: absolute
-    border-radius: 50%
-    border: 0
-    transform: scale(.3)
-    box-shadow: 0 0 50px 50px #6200ee
-    width: 50px
-    height: 50px
-    background: #6200ee
-    z-index: -2
-.touchable-light-full
-    transition: transform .35s ease-in-out
-    transform: scale(2)
+    &--filled
+        background-color: rgba(200,200,255,0.3)
+        padding: 0.5em
+    &--outlined
+        padding: 0
+        border: 0.5em solid rgba(200, 200, 255,0.3)
