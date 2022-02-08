@@ -1,6 +1,6 @@
 import React, { MouseEventHandler, PropsWithChildren, ReactElement } from 'react'
 import './Touchable.sass'
-export type TouchableSize = 'small' | 'medium' | 'large';
+
 export type TouchableVariant = 'filled' | 'normal' | 'outlined';
 
 export interface TouchableProps {

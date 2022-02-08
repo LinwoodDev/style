@@ -1,7 +1,8 @@
 .touchable
     position: relative
     overflow: hidden
-    transition: background 400ms
+    transition-property: background-color, border-color, box-shadow
+    transition-duration: 200ms
     outline: 0
     border-radius: 0.5rem
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3)
@@ -20,7 +21,12 @@
         outline: 0
     &--filled
         background-color: #29B6F660
-        padding: 0.5em
     &--outlined
         padding: 0
         border: 0.5em solid #29B6F660
+        &:hover
+            border-color: #29B6F688
+            background-color: transparent
+        &:active
+            border-color: #29B6F6CC
+            background-color: #29B6F6CC
