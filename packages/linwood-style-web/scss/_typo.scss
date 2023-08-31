@@ -1,0 +1,79 @@
+@use "vars";
+@use "colors";
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong,
+b {
+  color: colors.$background-text-light;
+}
+a {
+  color: colors.$primary;
+}
+nav a {
+  margin-right: 10px;
+}
+textarea {
+  width: 100%;
+  font-size: 16px;
+}
+input {
+  font-size: 16px;
+}
+content {
+  line-height: 1.6;
+}
+table {
+  width: 100%;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+code {
+  padding: 2px 5px;
+  background-color: colors.$panel;
+  color: colors.$panel-text-light;
+}
+pre {
+  padding: 1rem;
+}
+pre > code {
+  all: unset;
+}
+blockquote {
+  border: 1px solid #999;
+  color: colors.$background-text-light;
+  padding: 2px 0px 2px 20px;
+  margin: 0px;
+  font-style: italic;
+}
+
+.title {
+  font-size: 5rem;
+}
+
+.subtitle {
+  font-size: 3rem;
+}
+
+@media (max-width: vars.$mobile-breakpoint) {
+  .title {
+    font-size: 3rem;
+  }
+  .subtitle {
+    font-size: 2rem;
+  }
+}
+.section-title {
+  font-size: 3rem;
+  text-align: center;
+}
+.big-section {
+  padding: 2rem;
+  min-height: 25vh;
+}

@@ -1,35 +1,35 @@
 @use 'vars';
 @use 'colors';
 
-.#{vars.$prefix}-button {
-    display: inline-block;
-    text-decoration: none;
-    transition: all 0.2s ease-in-out;
-    font-weight: bolder;
-    border-radius: 0.5rem;
-    
-    &.primary, &.secondary {
-        background: transparent;
-        padding: 0.5rem 1rem;
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  font-weight: bolder;
+  border-radius: 0.5rem;
+  
+  &.primary, &.secondary {
+    background: transparent;
+    padding: 0.5rem 1rem;
+  }
+  &.primary:hover {
+    background: colors.$panel;
+  }
+  &.primary.active, &.secondary.active, &.secondary:hover {
+    color: colors.$background;
+    background: colors.$primary;
+  }
+  &.primary {
+    color: colors.$primary;
+  }
+  &.secondary {
+    color: colors.$background-text;
+  }
+  &.default {
+    color: colors.$background-text;
+    &.active, &:hover {
+      color: colors.$primary;
+      text-decoration: underline;
     }
-    &.primary:hover {
-        background: colors.$panel;
-    }
-    &.primary.active, &.secondary.active, &.secondary:hover {
-        color: colors.$background;
-        background: colors.$primary;
-    }
-    &.primary {
-        color: colors.$primary;
-    }
-    &.secondary {
-        color: colors.$background-text;
-    }
-    &.default {
-        color: colors.$background-text;
-        &.active, &:hover {
-            color: colors.$primary;
-            text-decoration: underline;
-        }
-    }
+  }
 }
