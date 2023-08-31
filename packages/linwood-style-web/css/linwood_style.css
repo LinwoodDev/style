@@ -1,0 +1,44 @@
+:root {
+  --ls-primary: #35EF53;
+  --ls-primary-text: #000;
+  --ls-background: #282C34;
+  --ls-background-text: #ddd;
+  --ls-background-text-light: #fff;
+  --ls-panel: #393D45;
+  --ls-panel-text: #ddd;
+  --ls-panel-text-light: #fff;
+}
+
+.ls-button {
+  display: inline-block;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  font-weight: bolder;
+  border-radius: 0.5rem;
+}
+.ls-button.primary, .ls-button.secondary {
+  background: transparent;
+  padding: 0.5rem 1rem;
+}
+.ls-button.primary:hover {
+  background: var(--ls-panel);
+}
+.ls-button.primary.active, .ls-button.secondary.active, .ls-button.secondary:hover {
+  color: var(--ls-background);
+  background: var(--ls-primary);
+}
+.ls-button.primary {
+  color: var(--ls-primary);
+}
+.ls-button.secondary {
+  color: var(--ls-background-text);
+}
+.ls-button.default {
+  color: var(--ls-background-text);
+}
+.ls-button.default.active, .ls-button.default:hover {
+  color: var(--ls-primary);
+  text-decoration: underline;
+}
+
+/*# sourceMappingURL=linwood_style.css.map */
