@@ -1,2 +1,0 @@
-# Linwood Style for Web
-

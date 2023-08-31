@@ -1,0 +1,21 @@
+@use 'vars';
+
+$primary: var(--#{vars.$prefix}-primary);
+$primary-text: var(--#{vars.$prefix}-primary-text);
+$background: var(--#{vars.$prefix}-background);
+$background-text: var(--#{vars.$prefix}-background-text);
+$background-text-light: var(--#{vars.$prefix}-background-text-light);
+$panel: var(--#{vars.$prefix}-panel);
+$panel-text: var(--#{vars.$prefix}-panel-text);
+$panel-text-light: var(--#{vars.$prefix}-panel-text-light);
+
+:root {
+    --#{vars.$prefix}-primary: #35EF53;
+    --#{vars.$prefix}-primary-text: #000;
+    --#{vars.$prefix}-background: #282C34;
+    --#{vars.$prefix}-background-text: #ddd;
+    --#{vars.$prefix}-background-text-light: #fff;
+    --#{vars.$prefix}-panel: #393D45;
+    --#{vars.$prefix}-panel-text: #ddd;
+    --#{vars.$prefix}-panel-text-light: #fff;
+}
