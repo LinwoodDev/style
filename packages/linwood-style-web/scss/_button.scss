@@ -8,24 +8,24 @@
     font-weight: bolder;
     border-radius: 0.5rem;
     
-    a.primary, a.secondary {
+    &.primary, &.secondary {
         background: transparent;
         padding: 0.5rem 1rem;
     }
-    a.primary:hover {
+    &.primary:hover {
         background: colors.$panel;
     }
-    a.primary.active, a.secondary.active, a.secondary:hover {
+    &.primary.active, &.secondary.active, &.secondary:hover {
         color: colors.$background;
         background: colors.$primary;
     }
-    a.primary {
+    &.primary {
         color: colors.$primary;
     }
-    a.secondary {
+    &.secondary {
         color: colors.$background-text;
     }
-    a.default {
+    &.default {
         color: colors.$background-text;
         &.active, &:hover {
             color: colors.$primary;
