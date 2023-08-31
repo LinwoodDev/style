@@ -3,12 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-  },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "typescript": "^5.2.2"
-  }
+  "packageManager": "pnpm@8.7.0",
+  "license": "ISC"
 }
