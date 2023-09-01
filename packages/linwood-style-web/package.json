@@ -8,6 +8,13 @@
     "watch": "sass --watch scss/:css/",
     "build": "sass --style compressed scss/:css/"
   },
+  "files": [
+    "css/**/*.css",
+    "css/**/*.css.map",
+    "scss/**/*.scss"
+  ],
+  "sass": "scss/linwood_style.scss",
+  "style": "css/linwood_style.css",
   "keywords": [],
   "author": "",
   "license": "MIT",

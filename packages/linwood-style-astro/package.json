@@ -2,7 +2,9 @@
   "name": "linwood-style-astro",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
+  "module": "index.ts",
+  "types": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,9 +16,9 @@
     ".": "./index.ts",
     "./components": "./components.ts",
     "./schema": "./schema.ts",
-    "./types": "./types.ts",
     "./index.astro": "./index.astro",
-    "./404.astro": "./404.astro"
+    "./404.astro": "./404.astro",
+    "./base.css": "./base.css"
   },
   "peerDependencies": {
     "astro": "^3.0.0"
@@ -29,6 +31,7 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^1.0.0",
-    "@astrojs/sitemap": "^3.0.0"
+    "@astrojs/sitemap": "^3.0.0",
+    "linwood-style-web": "workspace:*"
   }
 }
