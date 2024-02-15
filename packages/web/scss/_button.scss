@@ -1,5 +1,5 @@
-@use 'vars';
-@use 'colors';
+@use "vars";
+@use "colors";
 
 .btn {
   display: inline-block;
@@ -7,15 +7,31 @@
   transition: all 0.2s ease-in-out;
   font-weight: bolder;
   border-radius: 0.5rem;
-  
-  &.primary, &.secondary {
+  padding: 0.5rem 1rem;
+
+  color: colors.$background-text;
+  &.active,
+  &:hover {
+    color: colors.$primary;
+    text-decoration: underline;
+  }
+
+  &.full {
+    width: 100%;
+    flex: 1;
+  }
+
+  &.primary,
+  &.secondary {
     background: transparent;
-    padding: 0.5rem 1rem;
+    text-decoration: none;
   }
   &.primary:hover {
     background: colors.$panel;
   }
-  &.primary.active, &.secondary.active, &.secondary:hover {
+  &.primary.active,
+  &.secondary.active,
+  &.secondary:hover {
     color: colors.$background;
     background: colors.$primary;
   }
@@ -24,12 +40,5 @@
   }
   &.secondary {
     color: colors.$background-text;
-  }
-  &.default {
-    color: colors.$background-text;
-    &.active, &:hover {
-      color: colors.$primary;
-      text-decoration: underline;
-    }
   }
 }

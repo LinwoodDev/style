@@ -1,0 +1,73 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+---
+
+<Layout title="Welcome to Astro.">
+  <header class="navbar sticky">
+    <div class="navbar-title">
+      <h1>Linwood Style</h1>
+    </div>
+    <nav class="navbar-items">
+      <a class="btn secondary" href="#buttons">Buttons</a>
+      <a class="btn secondary" href="#hero">Hero</a>
+      <a class="btn secondary" href="#list">List</a>
+    </nav>
+  </header>
+  <div id="typo" class="big-section">
+    <h2>Typography</h2>
+    <h1 class="title">Title</h1>
+    <h2 class="subtitle">Subtitle</h2>
+    <h3 class="section-title">Section title</h3>
+    <h1>Heading 1</h1>
+    <h2>Heading 2</h2>
+    <h3>Heading 3</h3>
+    <h4>Heading 4</h4>
+    <h5>Heading 5</h5>
+    <h6>Heading 6</h6>
+    <p>
+      Paragraph text. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </p>
+  </div>
+  <div id="buttons" class="big-section">
+    <h2>Buttons</h2>
+    <a href="#" class="btn">Button</a>
+    <a href="#" class="btn primary">Primary</a>
+    <a href="#" class="btn secondary">Secondary</a>
+  </div>
+  <div id="hero" class="big-section">
+    <h2>Hero</h2>
+    <div class="hero">
+      <h3 class="hero-title">Hero title</h3>
+      <p class="hero-description">Hero subtitle</p>
+    </div>
+  </div>
+  <div id="list" class="big-section">
+    <h2>List</h2>
+    <ul class="list">
+      <li class="list-item">
+        <a class="btn full primary" href="#">
+          <p class="list-item-title">Item 1</p>
+          <p class="list-item-description">Item 1 description</p>
+        </a>
+      </li>
+      <li class="list-item">
+        <a href="#" class="btn full secondary">
+          <p class="list-item-title">Item 2</p>
+          <p class="list-item-description">Item 2 description</p>
+        </a>
+      </li>
+      <li class="list-item">
+        <a href="#" class="btn full">
+          <p class="list-item-title">Item 3</p>
+          <p class="list-item-description">Item 3 description</p>
+        </a>
+      </li>
+      <li class="list-item">
+        <p class="list-item-title">Item 4</p>
+        <p class="list-item-description">Item 4 description</p>
+      </li>
+    </ul>
+  </div>
+</Layout>

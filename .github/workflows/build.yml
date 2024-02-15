@@ -4,10 +4,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      # Setup pnpm
-      - name: Setup PNPM
-        uses: pnpm/action-setup@v2
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 8
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
@@ -17,10 +17,3 @@ jobs:
         run: pnpm install
       - name: Build the project
         run: pnpm -r build
-      # Update git branch if needed
-      - name: Update git branch
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Build project
-          commit_user_name: Linwood CI
-          commit_user_email: ci@linwood.dev

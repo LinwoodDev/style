@@ -1,0 +1,20 @@
+{
+  "name": "docs",
+  "private": true,
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.5.4",
+    "astro": "^4.4.0",
+    "linwood-style-web": "../linwood-style-web",
+    "sass": "^1.66.1",
+    "typescript": "^5.3.3"
+  }
+}

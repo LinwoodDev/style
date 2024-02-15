@@ -1,6 +1,6 @@
 {
-  "name": "linwood-style-web",
-  "version": "1.0.0",
+  "name": "@linwooddev/style",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -19,6 +19,6 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "sass": "^1.66.1"
+    "sass": "^1.70.0"
   }
 }
