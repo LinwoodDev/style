@@ -26,7 +26,7 @@ importers:
         specifier: ^5.3.3
         version: 5.3.3
 
-  packages/linwood-style-web:
+  packages/web:
     devDependencies:
       sass:
         specifier: ^1.70.0
