@@ -13,12 +13,12 @@ importers:
       '@astrojs/check':
         specifier: ^0.5.4
         version: 0.5.4(typescript@5.3.3)
+      '@linwooddev/style':
+        specifier: ../web
+        version: link:../web
       astro:
         specifier: ^4.4.0
         version: 4.4.0(sass@1.66.1)(typescript@5.3.3)
-      linwood-style-web:
-        specifier: ../linwood-style-web
-        version: link:../linwood-style-web
       sass:
         specifier: ^1.66.1
         version: 1.66.1
