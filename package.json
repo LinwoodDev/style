@@ -5,6 +5,15 @@
   "keywords": [],
   "author": "",
   "packageManager": "pnpm@8.15.3",
-  "workspaces": ["packages/*", "docs"],
-  "license": "MIT"
+  "workspaces": [
+    "packages/*",
+    "docs"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "ci:publish": "pnpm publish -r"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.1"
+  }
 }
