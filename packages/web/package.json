@@ -20,5 +20,8 @@
   "license": "MIT",
   "devDependencies": {
     "sass": "^1.70.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
