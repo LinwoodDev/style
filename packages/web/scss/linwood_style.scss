@@ -1,7 +1,7 @@
 @use 'colors';
 @use 'button';
 @use 'hero';
-@use 'list';
+@use 'layout';
 @use 'nav';
 @use 'typo';
 
@@ -15,17 +15,4 @@ html, body {
   font-family: 'Barlow', 'Roboto', sans-serif;
   background: colors.$background;
   color: colors.$background-text;
-}
-
-body {
-	margin: auto;
-	padding: 20px;
-	text-align: left;
-	background-color: #fff;
-	word-wrap: break-word;
-	overflow-wrap: break-word;
-	line-height: 1.5;
-	color: colors.$background-text;
-	background-color: colors.$background;
-	max-width: 64em;
 }

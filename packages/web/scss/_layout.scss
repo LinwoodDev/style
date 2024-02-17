@@ -1,0 +1,125 @@
+@use "vars";
+
+.container {
+  padding: 0 20px;
+  @each $breakpoint, $value in vars.$breakpoints {
+    &-#{$breakpoint} {
+      max-width: $value;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+  }
+}
+
+.flex {
+  flex: 1;
+}
+
+@for $i from 1 through vars.$steps {
+  .flex-#{$i} {
+    flex: $i;
+  }
+}
+
+
+@each $breakpoint, $value in vars.$spacing {
+  .gap-#{$breakpoint} {
+    gap: $value;
+  }
+  .p-#{$breakpoint} {
+    padding: $value;
+  }
+  .m-#{$breakpoint} {
+    margin: $value;
+  }
+  .w-#{$breakpoint} {
+    width: $value;
+  }
+  .h-#{$breakpoint} {
+    height: $value;
+  }
+  .ph-#{$breakpoint} {
+    padding-left: $value;
+    padding-right: $value;
+  }
+  .pv-#{$breakpoint} {
+    padding-top: $value;
+    padding-bottom: $value;
+  }
+  .mh-#{$breakpoint} {
+    margin-left: $value;
+    margin-right: $value;
+  }
+  .mv-#{$breakpoint} {
+    margin-top: $value;
+    margin-bottom: $value;
+  }
+  .pt-#{$breakpoint} {
+    padding-top: $value;
+  }
+  .pr-#{$breakpoint} {
+    padding-right: $value;
+  }
+  .pb-#{$breakpoint} {
+    padding-bottom: $value;
+  }
+  .pl-#{$breakpoint} {
+    padding-left: $value;
+  }
+  .mt-#{$breakpoint} {
+    margin-top: $value;
+  }
+  .mr-#{$breakpoint} {
+    margin-right: $value;
+  }
+  .mb-#{$breakpoint} {
+    margin-bottom: $value;
+  }
+  .ml-#{$breakpoint} {
+    margin-left: $value;
+  }
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.no-wrap {
+  flex-wrap: nowrap;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-end {
+  align-items: flex-end;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
