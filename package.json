@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "ci:publish": "pnpm publish -r"
+    "ci:publish": "pnpm publish -r --no-git-checks"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1"
