@@ -3,11 +3,14 @@
 
 .navbar {
   margin: 0em 0 2em;
+  padding: 0.5em 1em;
   display: flex;
   margin: auto;
   flex-wrap: wrap;
   justify-content: space-between;
-  &-sticky {
+  background-color: colors.$panel;
+  border-radius: 0.5em;
+  &, .sticky {
     position: sticky;
     top: 0;
     z-index: 100;
@@ -28,4 +31,5 @@
 .navbar-items {
   display: flex;
   align-items: center;
+  overflow-y: auto;
 }

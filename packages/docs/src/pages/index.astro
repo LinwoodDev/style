@@ -3,17 +3,19 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Welcome to Astro.">
+  <header class="navbar sticky container-lg">
+    <h1 class="navbar-title">
+      Linwood Style
+    </h1>
+    <nav class="navbar-items">
+      <a class="btn secondary" href="#buttons">Buttons</a>
+      <a class="btn secondary" href="#hero">Hero</a>
+      <a class="btn secondary" href="#list">List</a>
+      <div class="w-sm"></div>
+      <a class="btn secondary" href="https://github.com/LinwoodDev/style">GitHub</a>
+    </nav>
+  </header>
   <div class="container-lg">
-    <header class="navbar sticky">
-      <div class="navbar-title">
-        <h1>Linwood Style</h1>
-      </div>
-      <nav class="navbar-items">
-        <a class="btn secondary" href="#buttons">Buttons</a>
-        <a class="btn secondary" href="#hero">Hero</a>
-        <a class="btn secondary" href="#list">List</a>
-      </nav>
-    </header>
     <div id="typo" class="big-section">
       <h2>Typography</h2>
       <h1 class="title">Title</h1>
@@ -32,6 +34,8 @@ import Layout from "../layouts/Layout.astro";
     </div>
     <div id="buttons" class="big-section">
       <h2>Buttons</h2>
+      <a href="#">Default link</a>
+      <button>Default button</button>
       <a href="#" class="btn">Button</a>
       <a href="#" class="btn primary">Primary</a>
       <a href="#" class="btn secondary">Secondary</a>

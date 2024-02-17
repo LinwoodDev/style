@@ -1,13 +1,17 @@
 @use "vars";
 @use "colors";
 
-.btn {
+button, .btn {
   display: inline-block;
+  background: transparent;
+  border: none;
   text-decoration: none;
   transition: all 0.2s ease-in-out;
   font-weight: bolder;
+  font-size: 1rem;
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
+  cursor: pointer;
 
   color: colors.$background-text;
   &.active,
