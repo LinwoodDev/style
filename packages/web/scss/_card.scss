@@ -1,0 +1,27 @@
+@use 'colors';
+@use 'vars';
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 16px;
+  border-radius: vars.$border-radius;
+  border-style: solid;
+  border-width: 1px;
+  border-color: colors.$panel;
+  transition: all 0.2s ease-in-out;
+  &.primary {
+    border-color: colors.$primary-light;
+  }
+  &.primary:hover {
+    box-shadow: 0 0 10px 0px colors.$primary;
+    border-color: colors.$primary;
+  }
+  &.secondary {
+    border-color: colors.$panel;
+  }
+  &.secondary:hover {
+    border-color: colors.$primary;
+  }
+}

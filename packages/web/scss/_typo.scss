@@ -1,6 +1,22 @@
 @use "vars";
 @use "colors";
 
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Barlow', 'Roboto', sans-serif;
+  text-align: left;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.5;
+  background: colors.$background;
+  color: colors.$background-text;
+}
+
 h1,
 h2,
 h3,
@@ -77,3 +93,18 @@ blockquote {
   padding: 2rem;
   min-height: 25vh;
 }
+
+$alignments: (
+  'left': left,
+  'center': center,
+  'right': right,
+  'justify': justify,
+);
+
+@each $name, $value in $alignments {
+  .text-#{$name} {
+    text-align: $value;
+  }
+}
+
+

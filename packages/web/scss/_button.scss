@@ -9,40 +9,48 @@ button, .btn {
   transition: all 0.2s ease-in-out;
   font-weight: bolder;
   font-size: 1rem;
-  border-radius: 0.5rem;
+  border-radius: vars.$border-radius;
   padding: 0.5rem 1rem;
   cursor: pointer;
 
   color: colors.$background-text;
-  &.active,
   &:hover {
-    color: colors.$primary;
     text-decoration: underline;
   }
-
-  &.full {
-    width: 100%;
-    flex: 1;
+  &.active {
+    color: colors.$primary-light;
   }
 
-  &.primary,
-  &.secondary {
-    background: transparent;
+  &.primary, &.secondary {
     text-decoration: none;
   }
-  &.primary:hover {
-    background: colors.$panel;
-  }
-  &.primary.active,
-  &.secondary.active,
-  &.secondary:hover {
-    color: colors.$background;
-    background: colors.$primary;
-  }
+
   &.primary {
-    color: colors.$primary;
+    background-color: colors.$primary;
+    color: colors.$primary-text;
+    &.active {
+      background-color: colors.$primary-light;
+      &:hover {
+        background-color: colors.$primary;
+      }
+    }
+    &:hover {
+      box-shadow: vars.$box-shadow colors.$primary;
+    }
   }
+
   &.secondary {
-    color: colors.$background-text;
+    background-color: colors.$panel;
+    color: colors.$panel-text;
+    &.active {
+      color: colors.$primary-light;
+      &:hover {
+        background-color: colors.$primary;
+      }
+    }
+    &:hover {
+      background-color: colors.$primary;
+      color: colors.$primary-text;
+    }
   }
 }

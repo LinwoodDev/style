@@ -8,7 +8,7 @@ import Layout from "../layouts/Layout.astro";
       Linwood Style
     </h1>
     <nav class="navbar-items">
-      <a class="btn secondary" href="#buttons">Buttons</a>
+      <a class="btn secondary" href="#button">Button</a>
       <a class="btn secondary" href="#hero">Hero</a>
       <a class="btn secondary" href="#list">List</a>
       <div class="w-sm"></div>
@@ -32,13 +32,16 @@ import Layout from "../layouts/Layout.astro";
         Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
       </p>
     </div>
-    <div id="buttons" class="big-section">
-      <h2>Buttons</h2>
+    <div id="button" class="big-section">
+      <h2>Button</h2>
       <a href="#">Default link</a>
-      <button>Default button</button>
       <a href="#" class="btn">Button</a>
       <a href="#" class="btn primary">Primary</a>
       <a href="#" class="btn secondary">Secondary</a>
+      <h3>Active</h3>
+      <a href="#" class="btn active">Button</a>
+      <a href="#" class="btn active primary">Primary</a>
+      <a href="#" class="btn active secondary">Secondary</a>
     </div>
     <div id="hero" class="big-section">
       <h2>Hero</h2>
@@ -73,6 +76,45 @@ import Layout from "../layouts/Layout.astro";
           <p class="list-item-description">Item 4 description</p>
         </li>
       </ul>
+    </div>
+    <div id="card" class="big-section">
+      <h2>Card</h2>
+      <ul class="row justify-center wrap gap-xl">
+        <li>
+          <a class="card primary" href="#">
+            <p class="list-item-title">Item 1</p>
+            <p class="list-item-description">Item 1 description</p>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="card secondary">
+            <p class="list-item-title">Item 2</p>
+            <p class="list-item-description">Item 2 description</p>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="card">
+            <p class="list-item-title">Item 3</p>
+            <p class="list-item-description">Item 3 description</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div id="input" class="big-section">
+      <h2>Input</h2>
+      <input type="text" placeholder="Input" />
+      <div class="form-group">
+        <label for="input">Label</label>
+        <input type="text" id="input" />
+      </div>
+      <div class="form-group">
+        <label for="input">Number</label>
+        <input type="number" id="input" />
+      </div>
+      <div class="form-group">
+        <input type="checkbox" id="scales" name="scales" checked />
+        <label for="scales">Scales</label>
+      </div>
     </div>
   </div>
 </Layout>

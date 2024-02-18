@@ -1,4 +1,5 @@
 @use "sass:map";
+@use "sass:color";
 
 $breakpoints: (
   'xs': 576px,
@@ -6,14 +7,27 @@ $breakpoints: (
   'md': 992px,
   'lg': 1200px,
   'xl': 1400px,
-);
-$mobile-breakpoint: map-get($breakpoints, 'sm');
+) !default;
+$mobile-breakpoint: map-get($breakpoints, 'sm') !default;
 $spacing: (
-  'xs': 4px,
-  'sm': 8px,
-  'md': 16px,
-  'lg': 24px, 
-  'xl': 32px,
-);
-
-$steps: 6;
+  'xs': 6px,
+  'sm': 12px,
+  'md': 24px,
+  'lg': 48px,
+  'xl': 96px,
+) !default;
+$color-primary: #35EF53 !default;
+$color-primary-text: #000 !default;
+$lightness-factor: 15% !default;
+$elevation-factor: 10% !default;
+$color-elevation: rgba(255, 255, 255, $elevation-factor) !default;
+$color-background: #282C34 !default;
+$color-background-text: #ddd !default;
+$color-background-text-light: #fff !default;
+$color-panel: #393D45 !default;
+$color-panel-text: #ddd !default;
+$color-panel-text-light: #fff !default;
+$color-primary-light: color.mix($color-background, $color-primary, $lightness-factor) !default;
+$box-shadow: 0 0 10px 0px;
+$border-radius: 0.5rem;
+$steps: 6 !default;

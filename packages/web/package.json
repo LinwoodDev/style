@@ -19,7 +19,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "sass": "^1.70.0"
+    "sass": "^1.71.0"
   },
   "publishConfig": {
     "access": "public"

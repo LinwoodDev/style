@@ -11,6 +11,19 @@
   }
 }
 
+.full {
+  width: 100%;
+  height: 100%;  
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
 .flex {
   flex: 1;
 }
@@ -100,26 +113,36 @@
   flex-wrap: nowrap;
 }
 
-.align-start {
-  align-items: flex-start;
+$alignments: (
+  start: flex-start,
+  center: center,
+  end: flex-end,
+  stretch: stretch,
+);
+
+$justifyments: (
+  start: flex-start,
+  center: center,
+  end: flex-end,
+  between: space-between,
+  around: space-around,
+  evenly: space-evenly,
+);
+
+@each $name, $value in $alignments {
+  .align-#{$name} {
+    align-items: $value;
+  }
+  .align-self-#{$name} {
+    align-self: $value;
+  }
+  .justify-self-#{$name} {
+    justify-self: $value;
+  }
 }
 
-.align-center {
-  align-items: center;
-}
-
-.align-end {
-  align-items: flex-end;
-}
-
-.justify-start {
-  justify-content: flex-start;
-}
-
-.justify-center {
-  justify-content: center;
-}
-
-.justify-end {
-  justify-content: flex-end;
+@each $name, $value in $justifyments {
+  .justify-#{$name} {
+    justify-content: $value;
+  }
 }

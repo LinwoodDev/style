@@ -2,20 +2,24 @@
 
 $primary: var(--ls-primary);
 $primary-text: var(--ls-primary-text);
+$primary-light: var(--ls-primary-light);
 $background: var(--ls-background);
 $background-text: var(--ls-background-text);
 $background-text-light: var(--ls-background-text-light);
+$elevation: var(--ls-elevation);
 $panel: var(--ls-panel);
 $panel-text: var(--ls-panel-text);
 $panel-text-light: var(--ls-panel-text-light);
 
 :root {
-  --ls-primary: #35EF53;
-  --ls-primary-text: #000;
-  --ls-background: #282C34;
-  --ls-background-text: #ddd;
-  --ls-background-text-light: #fff;
-  --ls-panel: #393D45;
-  --ls-panel-text: #ddd;
-  --ls-panel-text-light: #fff;
+  --ls-primary: #{vars.$color-primary};
+  --ls-primary-text: #{vars.$color-primary-text};
+  --ls-primary-light: #{vars.$color-primary-light};
+  --ls-elevation: #{vars.$color-elevation};
+  --ls-background: #{vars.$color-background};
+  --ls-background-text: #{vars.$color-background-text};
+  --ls-background-text-light: #{vars.$color-background-text-light};
+  --ls-panel: #{vars.$color-panel};
+  --ls-panel-text: #{vars.$color-panel-text};
+  --ls-panel-text-light: #{vars.$color-panel-text-light};
 }
