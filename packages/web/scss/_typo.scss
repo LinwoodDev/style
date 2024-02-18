@@ -112,4 +112,16 @@ $alignments: (
   font-weight: bold;
 }
 
+hr, .h-divider {
+  height: 100%;
+  width: 2px;
+  margin: 0 8px;
+  background-color: colors.$elevation;
+}
 
+.v-divider {
+  height: 2px;
+  width: 100%;
+  margin: 8px 0;
+  background-color: colors.$elevation;
+}
