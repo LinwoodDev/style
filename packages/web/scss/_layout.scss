@@ -98,12 +98,16 @@
   display: flex;
   flex-direction: column;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .row {
   display: flex;
   flex-direction: row;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .wrap {
