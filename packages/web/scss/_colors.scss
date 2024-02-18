@@ -2,6 +2,7 @@
 
 $primary: var(--ls-primary);
 $primary-text: var(--ls-primary-text);
+$primary-text-highlight: var(--ls-primary-text-highlight);
 $primary-light: var(--ls-primary-light);
 $background: var(--ls-background);
 $background-text: var(--ls-background-text);
@@ -14,6 +15,7 @@ $panel-text-light: var(--ls-panel-text-light);
 :root {
   --ls-primary: #{vars.$color-primary};
   --ls-primary-text: #{vars.$color-primary-text};
+  --ls-primary-text-highlight: #{vars.$color-primary-text-highlight};
   --ls-primary-light: #{vars.$color-primary-light};
   --ls-elevation: #{vars.$color-elevation};
   --ls-background: #{vars.$color-background};
