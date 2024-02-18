@@ -12,13 +12,20 @@
   }
 }
 
-@each $breakpoint, $value in vars.$breakpoints {
-  .w-#{$breakpoint} {
-    width: $value;
-  }
-  .h-#{$breakpoint} {
-    height: $value;
-  }
+.col {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .full {
@@ -44,6 +51,14 @@
   }
 }
 
+@each $breakpoint, $value in vars.$sizing {
+  .w-#{$breakpoint} {
+    width: $value;
+  }
+  .h-#{$breakpoint} {
+    height: $value;
+  }
+}
 
 @each $breakpoint, $value in vars.$spacing {
   .gap-#{$breakpoint} {
@@ -95,22 +110,6 @@
   .ml-#{$breakpoint} {
     margin-left: $value;
   }
-}
-
-.col {
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.row {
-  display: flex;
-  flex-direction: row;
-  list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 .wrap {
