@@ -13,8 +13,8 @@
     "css/**/*.css.map",
     "scss/**/*.scss"
   ],
-  "sass": "scss/linwood_style.scss",
-  "style": "css/linwood_style.css",
+  "sass": "scss/main.scss",
+  "style": "css/main.css",
   "keywords": [],
   "author": "",
   "license": "MIT",

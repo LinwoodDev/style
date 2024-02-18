@@ -12,6 +12,15 @@
   }
 }
 
+@each $breakpoint, $value in vars.$breakpoints {
+  .w-#{$breakpoint} {
+    width: $value;
+  }
+  .h-#{$breakpoint} {
+    height: $value;
+  }
+}
+
 .full {
   width: 100%;
   height: 100%;  
@@ -45,12 +54,6 @@
   }
   .m-#{$breakpoint} {
     margin: $value;
-  }
-  .w-#{$breakpoint} {
-    width: $value;
-  }
-  .h-#{$breakpoint} {
-    height: $value;
   }
   .ph-#{$breakpoint} {
     padding-left: $value;
