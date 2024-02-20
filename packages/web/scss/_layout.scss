@@ -1,17 +1,6 @@
 @use "colors";
 @use "vars";
 
-.container {
-  padding: 0 20px;
-  @each $breakpoint, $value in vars.$breakpoints {
-    &-#{$breakpoint} {
-      max-width: $value;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-  }
-}
-
 .col {
   display: flex;
   flex-direction: column;
@@ -26,6 +15,18 @@
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.container {
+  padding: 0 20px;
+  margin: 0 auto;
+  @each $breakpoint, $value in vars.$breakpoints {
+    &-#{$breakpoint} {
+      max-width: $value;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+  }
 }
 
 .full {
@@ -58,6 +59,30 @@
   .h-#{$breakpoint} {
     height: $value;
   }
+}
+
+.m-auto {
+  margin: auto;
+}
+.mt-auto {
+  margin-top: auto;
+}
+.mb-auto {
+  margin-bottom: auto;
+}
+.ml-auto {
+  margin-left: auto;
+}
+.mr-auto {
+  margin-right: auto;
+}
+.mh-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.mv-auto {
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 @each $breakpoint, $value in vars.$spacing {

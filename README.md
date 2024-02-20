@@ -2,8 +2,8 @@
 
 > A minimal modern gui framework.
 
+[Preview](https://style.linwood.dev)
 
 ## Libraries
 
-* [React](linwood-style-react)
-
+* [Web](packages/web)

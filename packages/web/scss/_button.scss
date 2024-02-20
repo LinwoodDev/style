@@ -52,8 +52,9 @@ button, .btn {
   }
 
   &.secondary {
-    background-color: colors.$panel;
-    color: colors.$panel-text;
+    background-color: colors.$elevation;
+    backdrop-filter: vars.$elevation-filter;
+    color: colors.$background-text;
     &.active {
       color: colors.$primary-light;
       &:hover {

@@ -52,8 +52,9 @@ img {
 }
 code {
   padding: 2px 5px;
-  background-color: colors.$panel;
-  color: colors.$panel-text-light;
+  background-color: colors.$elevation;
+  color: colors.$background-text-light;
+  backdrop-filter: vars.$elevation-filter;
 }
 pre {
   padding: 1rem;

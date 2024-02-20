@@ -8,9 +8,6 @@ $background: var(--ls-background);
 $background-text: var(--ls-background-text);
 $background-text-light: var(--ls-background-text-light);
 $elevation: var(--ls-elevation);
-$panel: var(--ls-panel);
-$panel-text: var(--ls-panel-text);
-$panel-text-light: var(--ls-panel-text-light);
 
 :root {
   --ls-primary: #{vars.$color-primary};
@@ -21,7 +18,4 @@ $panel-text-light: var(--ls-panel-text-light);
   --ls-background: #{vars.$color-background};
   --ls-background-text: #{vars.$color-background-text};
   --ls-background-text-light: #{vars.$color-background-text-light};
-  --ls-panel: #{vars.$color-panel};
-  --ls-panel-text: #{vars.$color-panel-text};
-  --ls-panel-text-light: #{vars.$color-panel-text-light};
 }

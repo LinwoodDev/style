@@ -9,7 +9,7 @@
   border-radius: vars.$border-radius;
   border-style: solid;
   border-width: 1px;
-  border-color: colors.$panel;
+  border-color: colors.$elevation;
   transition: all 0.2s ease-in-out;
   &.primary {
     border-color: colors.$primary-light;
@@ -19,9 +19,16 @@
     border-color: colors.$primary;
   }
   &.secondary {
-    border-color: colors.$panel;
+    border-color: colors.$elevation;
   }
   &.secondary:hover {
     border-color: colors.$primary;
+  }
+  &.fill, &.paper {
+    backdrop-filter: vars.$elevation-filter;
+    background-color: colors.$elevation;
+  }
+  &.paper {
+    border: 0;
   }
 }
