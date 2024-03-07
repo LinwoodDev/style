@@ -11,17 +11,17 @@
   border-width: 1px;
   border-color: colors.$elevation;
   transition: all 0.2s ease-in-out;
+  &.secondary {
+    border-color: colors.$elevation;
+  }
+  &.secondary:hover {
+    border-color: colors.$primary;
+  }
   &.primary {
     border-color: colors.$primary-light;
   }
   &.primary:hover {
     box-shadow: 0 0 10px 0px colors.$primary;
-    border-color: colors.$primary;
-  }
-  &.secondary {
-    border-color: colors.$elevation;
-  }
-  &.secondary:hover {
     border-color: colors.$primary;
   }
   &.fill, &.paper {

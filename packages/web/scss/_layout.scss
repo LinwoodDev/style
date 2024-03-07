@@ -52,12 +52,32 @@
   }
 }
 
+.overflow-y {
+  overflow-y: auto;
+}
+
+.overflow-x {
+  overflow-x: auto;
+}
+
 @each $breakpoint, $value in vars.$sizing {
   .w-#{$breakpoint} {
     width: $value;
   }
   .h-#{$breakpoint} {
     height: $value;
+  }
+  .min-w-#{$breakpoint} {
+    min-width: $value;
+  }
+  .max-w-#{$breakpoint} {
+    min-width: $value;
+  }
+  .min-h-#{$breakpoint} {
+    min-height: $value;
+  }
+  .max-h-#{$breakpoint} {
+    max-height: $value;
   }
 }
 

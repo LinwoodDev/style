@@ -126,3 +126,25 @@ hr, .v-divider {
   margin: 8px 0;
   background-color: colors.$elevation;
 }
+
+.no-decoration {
+  text-decoration: none;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.normal-color {
+  color: colors.$background-text;
+}
+
+.invert {
+  filter: invert(100%);
+}
+
+.icon {
+  width: 1.5em;
+  height: 1.5em;
+  display: block;
+}
