@@ -29,6 +29,7 @@ b {
 }
 a, .link {
   color: colors.$primary;
+  text-decoration: underline;
 }
 nav a {
   margin-right: 10px;
@@ -127,7 +128,7 @@ hr, .v-divider {
   background-color: colors.$elevation;
 }
 
-.no-decoration {
+.no-decoration, .no-decoration:hover {
   text-decoration: none;
 }
 
@@ -135,8 +136,11 @@ hr, .v-divider {
   font-weight: bold;
 }
 
-.normal-color {
+.text {
   color: colors.$background-text;
+}
+.primary {
+  color: colors.$primary;
 }
 
 .invert {

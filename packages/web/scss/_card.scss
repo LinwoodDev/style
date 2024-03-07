@@ -11,6 +11,7 @@
   border-width: 1px;
   border-color: colors.$elevation;
   transition: all 0.2s ease-in-out;
+  text-decoration: none;
   &.secondary {
     border-color: colors.$elevation;
   }
@@ -27,6 +28,7 @@
   &.fill, &.paper {
     backdrop-filter: vars.$elevation-filter;
     background-color: colors.$elevation;
+    color: colors.$background-text;
   }
   &.paper {
     border: 0;

@@ -60,6 +60,19 @@
   overflow-x: auto;
 }
 
+@each $breakpoint, $value in vars.$breakpoints {
+  @container (max-width: #{$value}) {
+    .show-#{$breakpoint} {
+      display: none;
+    }
+  }
+  @container (min-width: #{$value}) {
+    .hide-#{$breakpoint} {
+      display: none;
+    }
+  }
+}
+
 @each $breakpoint, $value in vars.$sizing {
   .w-#{$breakpoint} {
     width: $value;
