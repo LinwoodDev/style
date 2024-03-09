@@ -2,39 +2,44 @@
 @use "sass:color";
 
 $breakpoints: (
-  'xs': 576px,
-  'sm': 768px,
-  'md': 992px,
-  'lg': 1200px,
-  'xl': 1400px,
+  "xs": 576px,
+  "sm": 768px,
+  "md": 992px,
+  "lg": 1200px,
+  "xl": 1400px,
 ) !default;
 $sizing: (
-  'xs': 100px,
-  'sm': 200px,
-  'md': 300px,
-  'lg': 400px,
-  'xl': 500px,
+  "xs": 100px,
+  "sm": 200px,
+  "md": 300px,
+  "lg": 400px,
+  "xl": 500px,
 ) !default;
-$mobile-breakpoint: map-get($breakpoints, 'sm') !default;
+$mobile-breakpoint: map-get($breakpoints, "sm") !default;
 $spacing: (
-  'none': 0,
-  'xs': 6px,
-  'sm': 12px,
-  'md': 24px,
-  'lg': 48px,
-  'xl': 96px,
+  "none": 0,
+  "xs": 6px,
+  "sm": 12px,
+  "md": 24px,
+  "lg": 48px,
+  "xl": 96px,
 ) !default;
-$color-primary: #35EF53 !default;
+$color-primary: #35ef53 !default;
 $color-primary-text: #222 !default;
 $color-primary-text-highlight: #000 !default;
 $lightness-factor: 15% !default;
 $elevation-factor: 10% !default;
 $color-elevation: rgba(255, 255, 255, $elevation-factor) !default;
 $elevation-filter: blur(12px);
-$color-background: #282C34 !default;
+$color-background: #282c34 !default;
 $color-background-text: #ddd !default;
 $color-background-text-light: #fff !default;
-$color-primary-light: color.mix($color-background, $color-primary, $lightness-factor) !default;
+$color-primary-light: color.mix(
+  $color-background,
+  $color-primary,
+  $lightness-factor
+) !default;
 $box-shadow: 0 0 10px 0px;
 $border-radius: 0.5rem;
 $steps: 6 !default;
+$font-family: "Barlow", "Roboto", sans-serif !default;
