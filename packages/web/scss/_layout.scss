@@ -76,7 +76,7 @@
     min-width: $value;
   }
   .max-w-#{$breakpoint} {
-    min-width: $value;
+    max-width: $value;
   }
   .min-h-#{$breakpoint} {
     min-height: $value;

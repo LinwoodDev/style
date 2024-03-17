@@ -17,6 +17,7 @@ $sizing: (
   "max": max-content,
   "min": min-content,
   "full": 100%,
+  "auto": auto,
 ) !default;
 $mobile-breakpoint: map-get($breakpoints, "sm") !default;
 $spacing: (
