@@ -14,6 +14,8 @@
   transition: all 0.2s ease-in-out;
   text-decoration: none;
   color: colors.$background-text;
+  backdrop-filter: none;
+  line-height: 1.5;
   font-weight: normal;
   text-align: left;
   &.bold {
