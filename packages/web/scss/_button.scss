@@ -12,6 +12,8 @@ button, .btn {
   border-radius: vars.$border-radius;
   padding: 0.5rem 1rem;
   cursor: pointer;
+  font-family: inherit;
+  text-align: center;
 
   color: colors.$background-text;
   .highlight {

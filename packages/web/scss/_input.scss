@@ -2,6 +2,7 @@
 @use 'vars';
 
 input {
+  font-family: inherit;
   accent-color: colors.$primary;
   border: 0;
   padding: 8px;
