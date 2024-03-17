@@ -16,6 +16,9 @@
   color: colors.$background-text;
   font-weight: normal;
   text-align: left;
+  &.bold {
+    font-weight: bold;
+  }
   &.secondary {
     border-color: colors.$elevation;
   }
