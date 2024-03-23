@@ -2,7 +2,10 @@
 @use "colors";
 
 button, .btn {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: map-get(vars.$spacing, 'xs');
   background: transparent;
   border: none;
   text-decoration: none;

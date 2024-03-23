@@ -1,7 +1,8 @@
-@use 'colors';
-@use 'vars';
+@use "colors";
+@use "vars";
 
-.card, button.card {
+.card,
+button.card {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -22,6 +23,7 @@
     font-weight: bold;
   }
   &.secondary {
+    background-color: transparent;
     border-color: colors.$elevation;
   }
   &.secondary:hover {
@@ -32,12 +34,15 @@
   &.primary {
     border-color: colors.$primary-light;
     color: colors.$primary;
+    background-color: transparent;
   }
   &.primary:hover {
     box-shadow: 0 0 10px 0px colors.$primary;
     border-color: colors.$primary;
+    background-color: transparent;
   }
-  &.fill, &.paper {
+  &.fill,
+  &.paper {
     backdrop-filter: vars.$elevation-filter;
     background-color: colors.$elevation;
     color: colors.$background-text;
