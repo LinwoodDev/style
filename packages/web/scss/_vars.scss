@@ -19,7 +19,7 @@ $sizing: (
   "full": 100%,
   "auto": auto,
 ) !default;
-$mobile-breakpoint: map-get($breakpoints, "sm") !default;
+$mobile-breakpoint: map.get($breakpoints, "sm") !default;
 $spacing: (
   "none": 0,
   "xs": 6px,
@@ -46,4 +46,4 @@ $color-primary-light: color.mix(
 $box-shadow: 0 0 10px 0px;
 $border-radius: 0.5rem;
 $steps: 6 !default;
-$font-family: "Barlow", "Roboto", sans-serif !default;
+$font-family: "Inter", "Roboto", sans-serif !default;

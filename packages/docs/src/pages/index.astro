@@ -3,17 +3,17 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Home">
-  <header class="navbar sticky container-lg">
-    <h1 class="navbar-title">
-      Linwood Style
-    </h1>
+  <header class="navbar-lg sticky">
+    <span class="navbar-title">Linwood Style</span>
     <nav class="navbar-items">
       <a class="btn secondary" href="#button">Button</a>
       <a class="btn secondary" href="#hero">Hero</a>
       <a class="btn secondary" href="#list">List</a>
       <a class="btn secondary" href="#input">Input</a>
       <div class="h-divider"></div>
-      <a class="btn secondary" href="https://github.com/LinwoodDev/style">GitHub</a>
+      <a class="btn secondary" href="https://github.com/LinwoodDev/style"
+        >GitHub</a
+      >
     </nav>
   </header>
   <div class="container-lg">
@@ -42,12 +42,22 @@ import Layout from "../layouts/Layout.astro";
       <h2>Button</h2>
       <a href="#">Default link</a>
       <a href="#" class="btn">Button <p class="highlight">Highlight</p></a>
-      <a href="#" class="btn primary">Primary <p class="highlight">Highlight</p></a>
-      <a href="#" class="btn secondary">Secondary <p class="highlight">Highlight</p></a>
+      <a href="#" class="btn primary"
+        >Primary <p class="highlight">Highlight</p></a
+      >
+      <a href="#" class="btn secondary"
+        >Secondary <p class="highlight">Highlight</p></a
+      >
       <h3>Active</h3>
-      <a href="#" class="btn active">Button <p class="highlight">Highlight</p></a>
-      <a href="#" class="btn active primary">Primary <p class="highlight">Highlight</p></a>
-      <a href="#" class="btn active secondary">Secondary <p class="highlight">Highlight</p></a>
+      <a href="#" class="btn active"
+        >Button <p class="highlight">Highlight</p></a
+      >
+      <a href="#" class="btn active primary"
+        >Primary <p class="highlight">Highlight</p></a
+      >
+      <a href="#" class="btn active secondary"
+        >Secondary <p class="highlight">Highlight</p></a
+      >
     </div>
     <div id="hero" class="big-section">
       <h2>Hero</h2>
@@ -71,8 +81,7 @@ import Layout from "../layouts/Layout.astro";
             <p class="list-item-description">Item 2 description</p>
           </a>
         </li>
-        <li class="v-divider">
-        </li>
+        <li class="v-divider"></li>
         <li>
           <a href="#" class="btn full">
             <p class="list-item-title">Item 3</p>

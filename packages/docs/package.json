@@ -13,8 +13,8 @@
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@linwooddev/style": "link:../web",
-    "astro": "^4.16.2",
-    "sass": "^1.79.5",
-    "typescript": "^5.6.3"
+    "astro": "^4.16.14",
+    "sass": "^1.81.0",
+    "typescript": "^5.7.2"
   }
 }

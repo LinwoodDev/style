@@ -6,10 +6,11 @@
   line-height: 1.5;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
-  font-family: vars.$font-family;
+  font-family: colors.$font-family;
   text-align: left;
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -28,7 +29,8 @@ strong,
 b {
   color: colors.$background-text-light;
 }
-a, .link {
+a,
+.link {
   color: colors.$primary;
   text-decoration: underline;
 }
@@ -98,10 +100,10 @@ blockquote {
 }
 
 $alignments: (
-  'left': left,
-  'center': center,
-  'right': right,
-  'justify': justify,
+  "left": left,
+  "center": center,
+  "right": right,
+  "justify": justify,
 );
 
 @each $name, $value in $alignments {
@@ -122,14 +124,16 @@ $alignments: (
   background-color: colors.$elevation;
 }
 
-hr, .v-divider {
+hr,
+.v-divider {
   height: 2px;
   width: 100%;
   margin: 8px 0;
   background-color: colors.$elevation;
 }
 
-.no-decoration, .no-decoration:hover {
+.no-decoration,
+.no-decoration:hover {
   text-decoration: none;
 }
 
@@ -156,4 +160,24 @@ hr, .v-divider {
   width: 1.5em;
   height: 1.5em;
   display: block;
+}
+
+$headings: (
+  "h1": 2.5rem,
+  "h2": 2rem,
+  "h3": 1.75rem,
+  "h4": 1.5rem,
+  "h5": 1.25rem,
+  "h6": 1rem,
+);
+
+@each $name, $value in $headings {
+  #{$name},
+  .#{$name} {
+    font-size: $value;
+    font-weight: bold;
+    line-height: 1.25;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
 }

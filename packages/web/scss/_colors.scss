@@ -1,4 +1,4 @@
-@use 'vars';
+@use "vars";
 
 $primary: var(--ls-primary);
 $primary-text: var(--ls-primary-text);
@@ -8,6 +8,7 @@ $background: var(--ls-background);
 $background-text: var(--ls-background-text);
 $background-text-light: var(--ls-background-text-light);
 $elevation: var(--ls-elevation);
+$font-family: var(--ls-font-family);
 
 :root {
   --ls-primary: #{vars.$color-primary};
@@ -18,4 +19,5 @@ $elevation: var(--ls-elevation);
   --ls-background: #{vars.$color-background};
   --ls-background-text: #{vars.$color-background-text};
   --ls-background-text-light: #{vars.$color-background-text-light};
+  --ls-font-family: #{vars.$font-family};
 }

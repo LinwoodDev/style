@@ -1,11 +1,13 @@
 @use "vars";
 @use "colors";
+@use "sass:map";
 
-button, .btn {
+button,
+.btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: map-get(vars.$spacing, 'xs');
+  gap: map.get(vars.$spacing, "xs");
   background: transparent;
   border: none;
   text-decoration: none;
@@ -35,7 +37,8 @@ button, .btn {
     }
   }
 
-  &.primary, &.secondary {
+  &.primary,
+  &.secondary {
     text-decoration: none;
   }
 
