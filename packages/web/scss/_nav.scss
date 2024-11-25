@@ -3,10 +3,9 @@
 @use "sass:map";
 
 .navbar {
-  margin: 0em 0 2em;
-  padding: 0.5em 1em;
   display: flex;
-  margin: auto;
+  margin: 0 auto 1.5rem;
+  padding: 1rem 1rem;
   flex-wrap: wrap;
   justify-content: space-between;
   border-bottom-left-radius: 0.5em;
