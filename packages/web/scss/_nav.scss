@@ -1,5 +1,6 @@
 @use "vars";
 @use "colors";
+@use "sass:map";
 
 .navbar {
   margin: 0em 0 2em;
@@ -31,12 +32,12 @@
   flex: 1;
   display: flex;
   align-items: center;
-  gap: 0.5em;
+  gap: map.get(vars.$spacing, "sm");
   min-width: 7em;
   text-decoration: none;
   color: inherit;
   font-weight: bold;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
 }
 
 .navbar-items {

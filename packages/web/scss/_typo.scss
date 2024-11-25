@@ -82,6 +82,13 @@ blockquote {
   font-size: 3rem;
 }
 
+.title,
+.subtitle {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
 @media (max-width: vars.$mobile-breakpoint) {
   .title {
     font-size: 3rem;
@@ -96,7 +103,9 @@ blockquote {
 }
 .big-section {
   padding: 2rem;
-  min-height: 25vh;
+}
+.long-section {
+  padding: 4rem 2rem;
 }
 
 $alignments: (
