@@ -1,77 +1,137 @@
 @use "vars";
 @use "colors";
+@use "mixins/typo" as typo;
 
-* {
-  box-sizing: border-box;
-  line-height: 1.5;
+@if vars.$enable-default-styling {
+  * {
+    @include typo.universal-base;
+  }
 }
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-  font-family: colors.$font-family;
-  text-align: left;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  line-height: 1.5;
-  background: colors.$background;
-  color: colors.$background-text;
+@if vars.$enable-default-styling {
+  html,
+  body {
+    @include typo.root-base;
+  }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-strong,
-b {
-  color: colors.$background-text-light;
+.html,
+.body {
+  @include typo.root-base;
 }
-a,
+
+@if vars.$enable-default-styling {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    @include typo.heading-highlight;
+  }
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+.strong,
+.b {
+  @include typo.heading-highlight;
+}
+
+@if vars.$enable-default-styling {
+  a {
+    @include typo.link-base;
+  }
+}
+
 .link {
-  color: colors.$primary;
-  text-decoration: underline;
+  @include typo.link-base;
 }
-nav a {
-  margin-right: 10px;
+
+@if vars.$enable-default-styling {
+  nav a {
+    @include typo.nav-link-base;
+  }
 }
-textarea {
-  width: 100%;
-  font-size: 16px;
+
+.nav-link {
+  @include typo.nav-link-base;
 }
-input {
-  font-size: 16px;
+
+@if vars.$enable-default-styling {
+  content {
+    @include typo.content-base;
+  }
 }
-content {
-  line-height: 1.6;
+
+.content {
+  @include typo.content-base;
 }
-table {
-  width: 100%;
+
+@if vars.$enable-default-styling {
+  table {
+    @include typo.table-base;
+  }
 }
-img {
-  max-width: 100%;
-  height: auto;
+
+.table {
+  @include typo.table-base;
 }
-code {
-  padding: 2px 5px;
-  background-color: colors.$elevation;
-  color: colors.$background-text-light;
-  backdrop-filter: vars.$elevation-filter;
+
+@if vars.$enable-default-styling {
+  img {
+    @include typo.img-base;
+  }
 }
-pre {
-  padding: 1rem;
+
+.img {
+  @include typo.img-base;
 }
-pre > code {
-  all: unset;
+
+@if vars.$enable-default-styling {
+  code {
+    @include typo.code-base;
+  }
 }
-blockquote {
-  border: 1px solid #999;
-  color: colors.$background-text-light;
-  padding: 2px 0px 2px 20px;
-  margin: 0px;
-  font-style: italic;
+
+.code {
+  @include typo.code-base;
+}
+
+@if vars.$enable-default-styling {
+  pre {
+    @include typo.pre-base;
+  }
+}
+
+.pre {
+  @include typo.pre-base;
+}
+
+@if vars.$enable-default-styling {
+  pre > code {
+    @include typo.pre-code-reset;
+  }
+}
+
+.pre > .code {
+  @include typo.pre-code-reset;
+}
+
+@if vars.$enable-default-styling {
+  blockquote {
+    @include typo.blockquote-base;
+  }
+}
+
+.blockquote {
+  @include typo.blockquote-base;
 }
 
 .title {
@@ -133,12 +193,15 @@ $alignments: (
   background-color: colors.$elevation;
 }
 
-hr,
+@if vars.$enable-default-styling {
+  hr {
+    @include typo.divider-base;
+  }
+}
+
+.hr,
 .v-divider {
-  height: 2px;
-  width: 100%;
-  margin: 8px 0;
-  background-color: colors.$elevation;
+  @include typo.divider-base;
 }
 
 .no-decoration,
@@ -181,12 +244,12 @@ $headings: (
 );
 
 @each $name, $value in $headings {
-  #{$name},
+  @if vars.$enable-default-styling {
+    #{$name} {
+      @include typo.heading-base($value);
+    }
+  }
   .#{$name} {
-    font-size: $value;
-    font-weight: bold;
-    line-height: 1.25;
-    margin-top: 0.5rem;
-    margin-bottom: 0.25rem;
+    @include typo.heading-base($value);
   }
 }

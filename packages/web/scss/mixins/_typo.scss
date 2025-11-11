@@ -1,0 +1,83 @@
+@use "../vars";
+@use "../colors";
+
+@mixin universal-base {
+  box-sizing: border-box;
+  line-height: 1.5;
+}
+
+@mixin root-base {
+  margin: 0;
+  padding: 0;
+  font-family: colors.$font-family;
+  text-align: left;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.5;
+  background: colors.$background;
+  color: colors.$background-text;
+}
+
+@mixin heading-highlight {
+  color: colors.$background-text-light;
+}
+
+@mixin link-base {
+  color: colors.$primary;
+  text-decoration: underline;
+}
+
+@mixin nav-link-base {
+  margin-right: 10px;
+}
+
+@mixin content-base {
+  line-height: 1.6;
+}
+
+@mixin table-base {
+  width: 100%;
+}
+
+@mixin img-base {
+  max-width: 100%;
+  height: auto;
+}
+
+@mixin code-base {
+  padding: 2px 5px;
+  background-color: colors.$elevation;
+  color: colors.$background-text-light;
+  backdrop-filter: vars.$elevation-filter;
+}
+
+@mixin pre-base {
+  padding: 1rem;
+}
+
+@mixin pre-code-reset {
+  all: unset;
+}
+
+@mixin blockquote-base {
+  border: 1px solid #999;
+  color: colors.$background-text-light;
+  padding: 2px 0px 2px 20px;
+  margin: 0px;
+  font-style: italic;
+}
+
+@mixin divider-base {
+  height: 2px;
+  width: 100%;
+  margin: 8px 0;
+  background-color: colors.$elevation;
+}
+
+@mixin heading-base($size) {
+  font-size: $size;
+  font-weight: bold;
+  line-height: 1.25;
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
+}

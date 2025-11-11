@@ -1,26 +1,15 @@
-@use 'colors';
 @use 'vars';
+@use 'mixins/input' as input-mixins;
+@use 'mixins/button' as button-mixins;
 
-input {
-  font-family: inherit;
-  accent-color: colors.$primary;
-  border: 0;
-  padding: 8px;
-  margin: 4px 0;
-  border-radius: vars.$border-radius;
-  backdrop-filter: vars.$elevation-filter;
-  background-color: colors.$elevation;
-  color: colors.$background-text;
-  &:not([type=checkbox]) {
-    width: 100%;
+@if vars.$enable-default-styling {
+  input {
+    @include input-mixins.input-base;
   }
-  &[type=checkbox] {
-    width: 1em;
-    height: 1em;
-  }
-  &:focus {
-    outline: 2px solid colors.$primary;
-  }
+}
+
+.input {
+  @include input-mixins.input-base;
 }
 
 .form-group {
@@ -35,54 +24,66 @@ input {
   }
 }
 
-select, textarea {
-  border: 0;
-  padding: 8px;
-  margin: 4px 0;
-  border-radius: vars.$border-radius;
-  backdrop-filter: vars.$elevation-filter;
-  background-color: colors.$elevation;
-  color: colors.$background-text;
-  background-repeat: no-repeat;
-  font-size: 1em;
-  appearance: none;
-  &:focus {
-    outline: 2px solid colors.$primary;
+@if vars.$enable-default-styling {
+  select {
+    @include input-mixins.choice-base;
+  }
+  textarea {
+    @include input-mixins.choice-base;
   }
 }
 
-select {
-  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='white'><polygon points='0,0 100,0 50,50'/></svg>") no-repeat;
-  background-position: calc(100% - 8px) calc(50% + 3px);
-  background-size: 12px;
-  padding-right: 28px;
-  background-color: colors.$elevation;
+.select,
+.textarea {
+  @include input-mixins.choice-base;
+}
+
+@if vars.$enable-default-styling {
+  select {
+    @include input-mixins.select-enhancements;
+  }
+}
+
+.select {
+  @include input-mixins.select-enhancements;
 }
 
 .resize-vertical {
   resize: vertical;
 }
 
-option {
-  border: 0;
-  padding: 8px;
-  margin: 4px 0;
-  background-color: colors.$background;
-  color: colors.$background-text;
-}
-
-button, .btn {
-  &:disabled {
-    cursor: not-allowed;
-    pointer-events: none;
-    background-color: colors.$background;
-    color: colors.$background-text;
+@if vars.$enable-default-styling {
+  option {
+    @include input-mixins.option-base;
   }
 }
 
-input[type=text]:read-only, input[type=number]:read-only, textarea:read-only {
-  cursor: not-allowed;
-  pointer-events: none;
-  background-color: colors.$background;
-  color: colors.$background-text;
+.option {
+  @include input-mixins.option-base;
+}
+
+@if vars.$enable-default-styling {
+  button {
+    @include button-mixins.button-disabled;
+  }
+}
+
+.btn {
+  @include button-mixins.button-disabled;
+}
+
+@if vars.$enable-default-styling {
+  input[type=text]:read-only,
+  input[type=number]:read-only,
+  textarea:read-only {
+    @include input-mixins.readonly-base;
+  }
+}
+
+.input[type=text]:read-only,
+.input[type=number]:read-only,
+.textarea:read-only,
+.input.readonly,
+.textarea.readonly {
+  @include input-mixins.readonly-base;
 }

@@ -1,90 +1,14 @@
 @use "vars";
-@use "colors";
-@use "sass:map";
+@use "mixins/button" as button;
 
-button,
+@if vars.$enable-default-styling {
+  button {
+    @include button.button-base;
+    @include button.button-disabled;
+  }
+}
+
 .btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: map.get(vars.$spacing, "xs");
-  background: transparent;
-  border: none;
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
-  font-weight: bold;
-  line-height: 1.5;
-  font-size: 1rem;
-  border-radius: vars.$border-radius;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  font-family: inherit;
-  text-align: center;
-
-  color: colors.$background-text;
-  .highlight {
-    transition: all 0.2s ease-in-out;
-    font-weight: bolder;
-  }
-  &:hover {
-    text-decoration: underline;
-  }
-  &.active {
-    color: colors.$primary-light;
-    .highlight {
-      color: inherit;
-      font-weight: bolder;
-    }
-  }
-
-  &.primary,
-  &.secondary {
-    text-decoration: none;
-  }
-
-  &.secondary {
-    background-color: colors.$elevation;
-    backdrop-filter: vars.$elevation-filter;
-    color: colors.$background-text;
-    &.active {
-      color: colors.$primary-light;
-      &:hover {
-        background-color: colors.$primary;
-        .highlight {
-          color: colors.$primary-text-highlight;
-          font-weight: bolder;
-        }
-      }
-      .highlight {
-        color: inherit;
-        font-weight: bolder;
-      }
-    }
-    &:hover {
-      background-color: colors.$primary;
-      color: colors.$primary-text;
-      .highlight {
-        color: colors.$primary-text-highlight;
-        font-weight: bolder;
-      }
-    }
-  }
-
-  &.primary {
-    background-color: colors.$primary;
-    color: colors.$primary-text;
-    &.active {
-      background-color: colors.$primary-light;
-      &:hover {
-        background-color: colors.$primary;
-      }
-    }
-    &:hover {
-      box-shadow: vars.$box-shadow colors.$primary;
-    }
-    .highlight {
-      color: colors.$primary-text-highlight;
-      font-weight: bolder;
-    }
-  }
+  @include button.button-base;
+  @include button.button-disabled;
 }

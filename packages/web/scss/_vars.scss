@@ -31,6 +31,7 @@ $spacing: (
 $color-primary: #35ef53 !default;
 $color-primary-text: #222 !default;
 $color-primary-text-highlight: #000 !default;
+$enable-default-styling: true !default;
 $lightness-factor: 15% !default;
 $elevation-factor: 10% !default;
 $color-elevation: rgba(255, 255, 255, $elevation-factor) !default;
