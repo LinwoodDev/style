@@ -11,10 +11,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@linwooddev/style": "link:../web",
-    "astro": "^4.16.14",
-    "sass": "^1.81.0",
-    "typescript": "^5.7.2"
+    "@astrojs/check": "^0.9.6",
+    "@linwooddev/style": "workspace:*",
+    "astro": "^5.16.6",
+    "sass": "^1.97.1",
+    "typescript": "^5.9.3"
   }
 }
