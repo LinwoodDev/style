@@ -1,6 +1,25 @@
 @use '@linwooddev/style/scss/mixins.scss' as lw;
 
+.inline-icon {
+  display: inline !important;
+  vertical-align: sub;
+  margin: 0 !important;
+  padding: 0;
+}
+
+br {
+  display: block;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
 :root {
+  --sl-font-system: "Inter Variable", sans-serif;
   --ls-primary: var(--sl-color-accent);
   --ls-primary-text: #fff;
   --sl-color-accent-low: var(--sl-color-accent);

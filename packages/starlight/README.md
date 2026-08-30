@@ -1,49 +1,22 @@
-# Starlight Starter Kit: Basics
+# Linwood Starlight style
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+Shared Starlight components, content collection configuration, typography, and
+Linwood styling used by the documentation sites.
 
-```
-pnpm create astro@latest -- --template starlight
-```
+```js
+import starlight from "@astrojs/starlight";
+import linwoodStarlight from "@linwooddev/starlight-style";
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro + Starlight project, you'll see the following folders and files:
-
-```
-.
-├── public/
-├── src/
-│   ├── assets/
-│   ├── content/
-│   │   └── docs/
-│   └── content.config.ts
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
+starlight({
+  plugins: [linwoodStarlight()],
+});
 ```
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
+Use the shared content collection from `src/content.config.ts`:
 
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+```ts
+export { collections } from "@linwooddev/starlight-style/content";
+```
 
-Static assets, like favicons, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+The download component is available as
+`@linwooddev/starlight-style/components/DownloadButton.astro`.

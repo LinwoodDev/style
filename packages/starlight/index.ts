@@ -1,19 +1,22 @@
 import type { StarlightPlugin } from "@astrojs/starlight/types";
 
-
-interface Config {
-}
-
-export default function createPlugin(config?: Config): StarlightPlugin {
+export default function createPlugin(): StarlightPlugin {
 	return {
 		name: "@linwooddev/starlight-style",
 		hooks: {
 			"config:setup": ({ config, updateConfig }) => {
 				updateConfig({
 					customCss: [
+						"@fontsource-variable/inter",
+						"@linwooddev/starlight-style/styles/linwood-style.scss",
 						...(config.customCss ?? []),
-						"@linwooddev/starlight-style/styles/shared.css",
 					],
+					components: {
+						...config.components,
+						Search: "@linwooddev/starlight-style/components/Search.astro",
+						ContentPanel:
+							"@linwooddev/starlight-style/components/ContentPanel.astro",
+					},
 				});
 			},
 		},
