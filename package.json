@@ -1,10 +1,21 @@
 {
   "private": true,
   "scripts": {
-    "ci:publish": "pnpm publish -r --no-git-checks"
+    "ci:version": "changeset version",
+    "ci:publish": "changeset publish"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.29.8"
+    "@changesets/cli": "^3.0.1"
   },
-  "packageManager": "pnpm@9.14.2"
+  "engines": {
+    "node": "^24.20.0"
+  },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "^24.20.0",
+      "onFail": "download"
+    }
+  },
+  "packageManager": "pnpm@12.1.0"
 }

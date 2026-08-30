@@ -24,7 +24,7 @@
     "directory": "packages/web"
   },
   "devDependencies": {
-    "sass": "^1.81.0"
+    "sass": "^1.103.1"
   },
   "publishConfig": {
     "access": "public"

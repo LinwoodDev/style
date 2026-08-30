@@ -1,19 +1,20 @@
-on: push
+on:
+  push:
+  pull_request:
+
 name: Build
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v3
+      - uses: actions/checkout@v7
+
+      - name: Setup pnpm, Node.js, and dependencies
+        uses: pnpm/setup@v2.1.0
         with:
-          version: 8
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: pnpm
-      - name: Install dependencies
-        run: pnpm install
+          cache: true
+          require-lockfile: true
+
       - name: Build the project
         run: pnpm -r build

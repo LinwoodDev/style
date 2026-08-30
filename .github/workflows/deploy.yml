@@ -1,10 +1,7 @@
 name: Deploy website
 
 on:
-  # Trigger the workflow every time you push to the `main` branch
-  # Using a different branch name? Replace `main` with your branch’s name
   push:
-  # Allows you to run this workflow manually from the Actions tab on GitHub.
   workflow_dispatch:
 
 jobs:
@@ -14,28 +11,27 @@ jobs:
       run:
         working-directory: packages/docs
     steps:
-      - uses: actions/checkout@v4
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-      - name: Use Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+
+      - name: Setup pnpm, Node.js, and dependencies
+        uses: pnpm/setup@v2.1.0
         with:
-          node-version: 22
-          cache: "pnpm"
-      - name: Install dependencies
-        run: pnpm install
+          cache: true
+          require-lockfile: true
+
       - name: Build
         run: pnpm build
+
       - name: Deploy to SFTP
         if: github.ref == 'refs/heads/main'
         env:
           SFTP_HOST: ${{ secrets.SFTP_HOST }}
           SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
           SFTP_KEY: ${{ secrets.SFTP_KEY }}
-          SFTP_KNOWN_HOSTS: ${{secrets.SFTP_KNOWN_HOSTS}}
+          SFTP_KNOWN_HOSTS: ${{ secrets.SFTP_KNOWN_HOSTS }}
         run: |
           echo "$SFTP_KEY" > sftp_key
           chmod 600 sftp_key
           echo "$SFTP_KNOWN_HOSTS" > known_hosts
           chmod 600 known_hosts
-          rsync -avz --delete -e "ssh -i sftp_key -o UserKnownHostsFile=known_hosts" dist/ $SFTP_USERNAME@$SFTP_HOST:/var/www/style.linwood
+          rsync -avz --delete -e "ssh -i sftp_key -o UserKnownHostsFile=known_hosts" dist/ "$SFTP_USERNAME@$SFTP_HOST:/var/www/style.linwood"
