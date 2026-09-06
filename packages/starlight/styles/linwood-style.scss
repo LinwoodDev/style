@@ -41,6 +41,10 @@ br {
 }
 header {
   backdrop-filter: lw.$elevation-filter;
+  background: color-mix(in srgb, var(--ls-background) 72%, transparent);
+  border-bottom: 1px solid var(--sl-color-gray-5);
+  box-shadow: 0 0.35rem 1rem color-mix(in srgb, var(--ls-background-text) 5%, transparent);
+  isolation: isolate;
 }
 .tagline, label, .site-title {
   color: var(--ls-background-text);
@@ -144,4 +148,12 @@ a {
   @include lw.button-base();
   padding: 0.5rem;
   border-radius: 50%;
+}
+
+.sl-link-card, .card {
+  border-radius: 1rem;
+}
+
+.description {
+  --sl-color-gray-3: color-mix(in srgb, var(--ls-background-text) 78%, transparent);
 }
