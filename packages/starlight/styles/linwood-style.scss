@@ -43,7 +43,6 @@ header {
   backdrop-filter: lw.$elevation-filter;
   background: color-mix(in srgb, var(--ls-background) 72%, transparent);
   border-bottom: 1px solid var(--sl-color-gray-5);
-  box-shadow: 0 0.35rem 1rem color-mix(in srgb, var(--ls-background-text) 5%, transparent);
   isolation: isolate;
 }
 .tagline, label, .site-title {
