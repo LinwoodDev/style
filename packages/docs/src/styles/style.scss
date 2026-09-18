@@ -1,1 +1,31 @@
 @use '@linwooddev/style';
+
+:root {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 1000;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background: var(--ls-primary);
+  color: var(--ls-primary-text);
+  font-weight: bold;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.docs-nav {
+  gap: 0.5rem;
+}
+
+.docs-nav .navbar-items {
+  flex-wrap: wrap;
+}

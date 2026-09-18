@@ -1,10 +1,9 @@
 {
   "name": "@linwooddev/style",
-  "description": "",
-  "main": "index.js",
+  "description": "A lightweight, customizable SCSS design system for Linwood web projects.",
   "version": "0.4.2",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "check": "sass --no-source-map scss/:css/",
     "watch": "sass --watch scss/:css/",
     "build": "sass --style compressed scss/:css/"
   },
@@ -15,9 +14,18 @@
   ],
   "sass": "scss/main.scss",
   "style": "css/main.css",
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "css",
+    "design-system",
+    "sass",
+    "scss"
+  ],
+  "author": "Linwood",
   "license": "MIT",
+  "homepage": "https://style.linwood.dev",
+  "bugs": {
+    "url": "https://github.com/LinwoodDev/style/issues"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/LinwoodDev/style.git",

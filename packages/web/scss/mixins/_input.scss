@@ -2,6 +2,7 @@
 @use "../colors";
 
 @mixin input-base {
+  box-sizing: border-box;
   font-family: inherit;
   accent-color: colors.$primary;
   border: 0;
@@ -12,19 +13,27 @@
   background-color: colors.$elevation;
   color: colors.$background-text;
   font-size: 1rem;
+  min-block-size: vars.$control-min-size;
   &:not([type=checkbox]) {
     width: 100%;
   }
   &[type=checkbox] {
-    width: 1em;
-    height: 1em;
+    width: 1.5rem;
+    height: 1.5rem;
+    min-block-size: 1.5rem;
   }
-  &:focus {
-    outline: 2px solid colors.$primary;
+  &::placeholder {
+    color: colors.$background-text-light;
+    opacity: 0.75;
+  }
+  &:focus-visible {
+    outline: vars.$focus-ring-width solid colors.$primary;
+    outline-offset: 2px;
   }
 }
 
 @mixin choice-base {
+  box-sizing: border-box;
   border: 0;
   padding: 8px;
   margin: 4px 0;
@@ -34,18 +43,17 @@
   color: colors.$background-text;
   background-repeat: no-repeat;
   font-size: 1em;
-  appearance: none;
   width: 100%;
-  &:focus {
-    outline: 2px solid colors.$primary;
+  min-block-size: vars.$control-min-size;
+  &:focus-visible {
+    outline: vars.$focus-ring-width solid colors.$primary;
+    outline-offset: 2px;
   }
 }
 
 @mixin select-enhancements {
-  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='white'><polygon points='0,0 100,0 50,50'/></svg>") no-repeat;
-  background-position: calc(100% - 8px) calc(50% + 3px);
-  background-size: 12px;
-  padding-right: 28px;
+  appearance: auto;
+  padding-right: 8px;
   background-color: colors.$elevation;
 }
 
@@ -58,8 +66,8 @@
 }
 
 @mixin readonly-base {
-  cursor: not-allowed;
-  pointer-events: none;
+  cursor: text;
   background-color: colors.$background;
   color: colors.$background-text;
+  opacity: 0.8;
 }

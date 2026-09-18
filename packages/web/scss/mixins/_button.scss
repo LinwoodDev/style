@@ -3,26 +3,36 @@
 @use "sass:map";
 
 @mixin button-base {
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: map.get(vars.$spacing, "xs");
   background: transparent;
-  border: none;
+  border: 1px solid transparent;
   text-decoration: none;
-  transition: all 0.2s ease-in-out;
+  transition:
+    background-color vars.$motion-duration ease-in-out,
+    border-color vars.$motion-duration ease-in-out,
+    box-shadow vars.$motion-duration ease-in-out,
+    color vars.$motion-duration ease-in-out;
   font-weight: bold;
   line-height: 1.5;
   font-size: 1rem;
   border-radius: vars.$border-radius;
   padding: 0.5rem 1rem;
+  min-block-size: vars.$control-min-size;
   cursor: pointer;
   font-family: inherit;
   text-align: center;
 
   color: colors.$background-text;
+  &:focus-visible {
+    outline: vars.$focus-ring-width solid colors.$primary;
+    outline-offset: 2px;
+  }
   .highlight {
-    transition: all 0.2s ease-in-out;
+    transition: color vars.$motion-duration ease-in-out;
     font-weight: bolder;
   }
   &:hover {
@@ -91,8 +101,8 @@
 @mixin button-disabled {
   &:disabled {
     cursor: not-allowed;
-    pointer-events: none;
     background-color: colors.$background;
     color: colors.$background-text;
+    opacity: 0.6;
   }
 }

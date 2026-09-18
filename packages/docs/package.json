@@ -1,5 +1,6 @@
 {
   "name": "docs",
+  "description": "The Linwood Style documentation and component showcase.",
   "private": true,
   "type": "module",
   "version": "0.0.1",

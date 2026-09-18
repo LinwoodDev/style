@@ -12,13 +12,21 @@ button.card {
   border-width: 1px;
   border-color: colors.$elevation;
   background-color: transparent;
-  transition: all 0.2s ease-in-out;
+  transition:
+    background-color vars.$motion-duration ease-in-out,
+    border-color vars.$motion-duration ease-in-out,
+    box-shadow vars.$motion-duration ease-in-out,
+    color vars.$motion-duration ease-in-out;
   text-decoration: none;
   color: colors.$background-text;
   backdrop-filter: none;
   line-height: 1.5;
   font-weight: normal;
   text-align: left;
+  &:focus-visible {
+    outline: vars.$focus-ring-width solid colors.$primary;
+    outline-offset: 3px;
+  }
   &.bold {
     font-weight: bold;
   }

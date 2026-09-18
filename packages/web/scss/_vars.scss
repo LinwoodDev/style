@@ -36,6 +36,9 @@ $lightness-factor: 15% !default;
 $elevation-factor: 10% !default;
 $color-elevation: rgba(255, 255, 255, $elevation-factor) !default;
 $elevation-filter: blur(12px);
+$focus-ring-width: 3px !default;
+$control-min-size: 2.75rem !default;
+$motion-duration: 0.2s !default;
 $color-background: #282c34 !default;
 $color-background-text: #ddd !default;
 $color-background-text-light: #fff !default;
@@ -44,7 +47,7 @@ $color-primary-light: color.mix(
   $color-primary,
   $lightness-factor
 ) !default;
-$box-shadow: 0 0 10px 0px;
-$border-radius: 0.5rem;
+$box-shadow: 0 0 10px 0px !default;
+$border-radius: 0.5rem !default;
 $steps: 6 !default;
 $font-family: "Inter", "Roboto", sans-serif !default;

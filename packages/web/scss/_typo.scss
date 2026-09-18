@@ -135,11 +135,11 @@
 }
 
 .title {
-  font-size: 5rem;
+  font-size: clamp(3rem, 8vw, 5rem);
 }
 
 .subtitle {
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3rem);
 }
 
 .title,
@@ -149,23 +149,15 @@
   line-height: 1.5;
 }
 
-@media (max-width: vars.$mobile-breakpoint) {
-  .title {
-    font-size: 3rem;
-  }
-  .subtitle {
-    font-size: 2rem;
-  }
-}
 .section-title {
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3rem);
   text-align: center;
 }
 .big-section {
-  padding: 2rem;
+  padding: clamp(1.25rem, 4vw, 2rem);
 }
 .long-section {
-  padding: 4rem 2rem;
+  padding: clamp(2rem, 8vw, 4rem) clamp(1.25rem, 4vw, 2rem);
 }
 
 $alignments: (
@@ -232,6 +224,28 @@ $alignments: (
   width: 1.5em;
   height: 1.5em;
   display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+@media (forced-colors: active) {
+  .btn,
+  button,
+  .card,
+  input,
+  select,
+  textarea {
+    border: 1px solid ButtonText;
+  }
 }
 
 $headings: (

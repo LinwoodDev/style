@@ -3,22 +3,27 @@ import '../styles/style.scss';
 
 interface Props {
 	title: string;
+	description?: string;
 }
 
-const { title } = Astro.props;
+const {
+	title,
+	description = "A live showcase and reference for the Linwood Style SCSS design system.",
+} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title} - Linwood Style</title>
 	</head>
 	<body>
+		<a class="skip-link" href="#main-content">Skip to content</a>
 		<slot />
 	</body>
 </html>

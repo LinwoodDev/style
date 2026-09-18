@@ -1,5 +1,6 @@
 {
   "name": "@linwooddev/starlight-style",
+  "description": "Shared Starlight components and styling for Linwood documentation sites.",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -10,6 +11,27 @@
     "./components/*": "./components/*",
     "./content": "./content.ts",
     "./styles/*": "./styles/*"
+  },
+  "files": [
+    "components",
+    "styles",
+    "content.ts",
+    "index.ts"
+  ],
+  "keywords": [
+    "astro",
+    "design-system",
+    "starlight"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/LinwoodDev/style#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LinwoodDev/style.git",
+    "directory": "packages/starlight"
+  },
+  "bugs": {
+    "url": "https://github.com/LinwoodDev/style/issues"
   },
   "peerDependencies": {
     "@astrojs/starlight": "^0.41.10",

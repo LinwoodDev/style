@@ -83,7 +83,6 @@
 }
 .mp-auto {
   margin: auto;
-  padding: auto;
 }
 .mp-none {
   margin: 0;
@@ -206,10 +205,12 @@ ol {
 }
 
 .container {
+  container-type: inline-size;
   padding: 0 20px;
   margin: 0 auto;
   @each $breakpoint, $value in vars.$breakpoints {
     &-#{$breakpoint} {
+      container-type: inline-size;
       max-width: $value;
       margin: 0 auto;
       padding: 0 20px;

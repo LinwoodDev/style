@@ -25,6 +25,13 @@
 @mixin link-base {
   color: colors.$primary;
   text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.15em;
+  &:focus-visible {
+    outline: vars.$focus-ring-width solid colors.$primary;
+    outline-offset: 3px;
+    border-radius: 0.125rem;
+  }
 }
 
 @mixin nav-link-base {
@@ -53,6 +60,8 @@
 
 @mixin pre-base {
   padding: 1rem;
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 @mixin pre-code-reset {

@@ -2,182 +2,159 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Home">
-  <header class="navbar-lg sticky">
-    <span class="navbar-title">Linwood Style</span>
-    <nav class="navbar-items">
-      <a class="btn secondary" href="#button">Button</a>
-      <a class="btn secondary" href="#hero">Hero</a>
-      <a class="btn secondary" href="#list">List</a>
-      <a class="btn secondary" href="#input">Input</a>
-      <div class="h-divider"></div>
-      <a class="btn secondary" href="https://github.com/LinwoodDev/style"
-        >GitHub</a
-      >
+<Layout title="Documentation">
+  <header class="navbar-lg sticky docs-nav">
+    <a class="navbar-title" href="/">Linwood Style</a>
+    <nav class="navbar-items gap-xs" aria-label="Primary navigation">
+      <a class="btn" href="#components">Components</a>
+      <a class="btn" href="#forms">Forms</a>
+      <a class="btn" href="#layout">Layout</a>
+      <a class="btn" href="#customize">Customize</a>
+      <a class="btn secondary" href="https://github.com/LinwoodDev/style">GitHub</a>
     </nav>
   </header>
-  <div class="container-lg">
-    <div class="big-section">
-      <h2>Installation</h2>
-      <p>To use Linwood Style, use:</p>
-      <code>npm install @linwooddev/style</code>
-    </div>
-    <div id="typo" class="big-section">
-      <h2>Typography</h2>
-      <h1 class="title">Title</h1>
-      <h2 class="subtitle">Subtitle</h2>
-      <h3 class="section-title">Section title</h3>
-      <h1>Heading 1</h1>
-      <h2>Heading 2</h2>
-      <h3>Heading 3</h3>
-      <h4>Heading 4</h4>
-      <h5>Heading 5</h5>
-      <h6>Heading 6</h6>
-      <p>
-        Paragraph text. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      </p>
-    </div>
-    <div id="button" class="big-section">
-      <h2>Button</h2>
-      <a href="#">Default link</a>
-      <a href="#" class="btn">Button <p class="highlight">Highlight</p></a>
-      <a href="#" class="btn primary"
-        >Primary <p class="highlight">Highlight</p></a
-      >
-      <a href="#" class="btn secondary"
-        >Secondary <p class="highlight">Highlight</p></a
-      >
-      <h3>Active</h3>
-      <a href="#" class="btn active"
-        >Button <p class="highlight">Highlight</p></a
-      >
-      <a href="#" class="btn active primary"
-        >Primary <p class="highlight">Highlight</p></a
-      >
-      <a href="#" class="btn active secondary"
-        >Secondary <p class="highlight">Highlight</p></a
-      >
-    </div>
-    <div id="hero" class="big-section">
-      <h2>Hero</h2>
-      <div class="hero">
-        <h3 class="hero-title">Hero title</h3>
-        <p class="hero-description">Hero subtitle</p>
+
+  <main id="main-content" class="container-lg" tabindex="-1">
+    <section class="big-section">
+      <h1>Linwood Style</h1>
+      <p>A small, customizable SCSS framework for Linwood web projects.</p>
+
+      <h2>Install</h2>
+      <pre class="card paper"><code>pnpm add @linwooddev/style</code></pre>
+      <pre class="card paper"><code>@use "@linwooddev/style";</code></pre>
+    </section>
+
+    <hr />
+
+    <section class="big-section" aria-labelledby="typography-title">
+      <h2 id="typography-title">Typography</h2>
+      <div class="card paper">
+        <p class="h1">Heading level one</p>
+        <p class="h2">Heading level two</p>
+        <p class="h3">Heading level three</p>
+        <p>
+          Paragraph text uses the configured font and colors.{" "}
+          <a href="#customize">Links remain underlined</a> so they are not identified by color alone.
+        </p>
+        <blockquote><p>Blockquotes use a simple border and italic text.</p></blockquote>
+        <p><code>Inline code</code> uses the elevation color.</p>
       </div>
-    </div>
-    <div id="list" class="big-section">
-      <h2>List</h2>
-      <ul class="col gap-sm">
-        <li>
-          <a class="btn full primary" href="#">
-            <p class="list-item-title">Item 1</p>
-            <p class="list-item-description">Item 1 description</p>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="btn full secondary">
-            <p class="list-item-title">Item 2</p>
-            <p class="list-item-description">Item 2 description</p>
-          </a>
-        </li>
-        <li class="v-divider"></li>
-        <li>
-          <a href="#" class="btn full">
-            <p class="list-item-title">Item 3</p>
-            <p class="list-item-description">Item 3 description</p>
-          </a>
-        </li>
-        <li>
-          <p class="list-item-title">Item 4</p>
-          <p class="list-item-description">Item 4 description</p>
-        </li>
+    </section>
+
+    <section id="components" class="big-section" aria-labelledby="components-title">
+      <h2 id="components-title">Components</h2>
+
+      <h3>Buttons</h3>
+      <div class="row wrap gap-sm">
+        <button type="button">Default</button>
+        <button type="button" class="primary">Primary</button>
+        <button type="button" class="secondary">Secondary</button>
+        <button type="button" disabled>Disabled</button>
+        <a class="btn" href="#forms">Button link</a>
+      </div>
+
+      <h3>Cards</h3>
+      <div class="row wrap gap-sm align-stretch">
+        <a class="card primary flex-1 min-w-sm" href="#customize">
+          <strong>Primary card</strong>
+          <span>Use for an emphasized linked item.</span>
+        </a>
+        <a class="card secondary flex-1 min-w-sm" href="#layout">
+          <strong>Secondary card</strong>
+          <span>Use for a quieter linked item.</span>
+        </a>
+        <article class="card fill flex-1 min-w-sm">
+          <strong>Filled card</strong>
+          <span>Cards can also contain static content.</span>
+        </article>
+      </div>
+    </section>
+
+    <section id="forms" class="big-section" aria-labelledby="forms-title">
+      <h2 id="forms-title">Forms</h2>
+      <form class="card paper gap-sm">
+        <div class="col gap-xs">
+          <label class="bold" for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" placeholder="Ada Lovelace" />
+        </div>
+
+        <div class="col gap-xs">
+          <label class="bold" for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="ada@example.com" />
+        </div>
+
+        <div class="col gap-xs">
+          <label class="bold" for="role">Role</label>
+          <select id="role" name="role">
+            <option>Designer</option>
+            <option>Developer</option>
+            <option>Writer</option>
+          </select>
+        </div>
+
+        <div class="col gap-xs">
+          <label class="bold" for="message">Message</label>
+          <textarea id="message" name="message" class="resize-vertical" rows="4"></textarea>
+        </div>
+
+        <div class="col gap-xs">
+          <label class="bold" for="project-id">Read-only value</label>
+          <input id="project-id" type="text" value="linwood-style" readonly />
+        </div>
+
+        <div class="row gap-xs align-center">
+          <input id="updates" name="updates" type="checkbox" checked />
+          <label for="updates">Send project updates</label>
+        </div>
+
+        <button class="primary" type="button">Submit example</button>
+      </form>
+    </section>
+
+    <section id="layout" class="big-section" aria-labelledby="layout-title">
+      <h2 id="layout-title">Layout utilities</h2>
+      <p>Rows, columns, gaps, flex sizing, spacing, and responsive container-query helpers are included.</p>
+      <div class="row wrap gap-sm">
+        <div class="card flex-1 min-w-sm"><code>.row</code></div>
+        <div class="card flex-2 min-w-sm"><code>.gap-sm</code></div>
+        <div class="card flex-1 min-w-sm"><code>.flex-*</code></div>
+      </div>
+      <p class="show-sm">This text is visible when the container is at least 768px wide.</p>
+    </section>
+
+    <section id="customize" class="big-section" aria-labelledby="customize-title">
+      <h2 id="customize-title">Customize</h2>
+      <p>Configure Sass variables before the stylesheet is evaluated:</p>
+      <pre><code>@use "@linwooddev/style" with (
+  $color-primary: #8b7cff,
+  $color-background: #17171c,
+  $border-radius: 0.75rem,
+  $enable-default-styling: true
+);</code></pre>
+
+      <h3>Runtime color tokens</h3>
+      <ul>
+        <li><code>--ls-primary</code></li>
+        <li><code>--ls-primary-text</code></li>
+        <li><code>--ls-background</code></li>
+        <li><code>--ls-background-text</code></li>
+        <li><code>--ls-elevation</code></li>
       </ul>
-    </div>
-    <div id="card" class="big-section">
-      <h2>Card</h2>
-      <ul class="row justify-center wrap gap-xl">
-        <li>
-          <a class="card primary" href="#">
-            <p class="list-item-title">Item 1</p>
-            <p class="list-item-description">Item 1 description</p>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="card secondary">
-            <p class="list-item-title">Item 2</p>
-            <p class="list-item-description">Item 2 description</p>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="card">
-            <p class="list-item-title">Item 3</p>
-            <p class="list-item-description">Item 3 description</p>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="card fill">
-            <p class="list-item-title">Item 4</p>
-            <p class="list-item-description">Item 4 description</p>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="card paper">
-            <p class="list-item-title">Item 5</p>
-            <p class="list-item-description">Item 5 description</p>
-          </a>
-        </li>
-      </ul>
-      <h3>Or as button</h3>
-      <button class="card fill no-decoration p-xs">Button</button>
-      <ul class="row justify-center wrap gap-xl">
-        <li>
-          <button class="card primary bold">
-            <p class="list-item-title">Item 1</p>
-            <p class="list-item-description">Item 1 description</p>
-          </button>
-        </li>
-        <li>
-          <button class="card secondary bold">
-            <p class="list-item-title">Item 2</p>
-            <p class="list-item-description">Item 2 description</p>
-          </button>
-        </li>
-        <li>
-          <button class="card bold">
-            <p class="list-item-title">Item 3</p>
-            <p class="list-item-description">Item 3 description</p>
-          </button>
-        </li>
-        <li>
-          <button class="card fill bold">
-            <p class="list-item-title">Item 4</p>
-            <p class="list-item-description">Item 4 description</p>
-          </button>
-        </li>
-        <li>
-          <button class="card paper bold">
-            <p class="list-item-title">Item 5</p>
-            <p class="list-item-description">Item 5 description</p>
-          </button>
-        </li>
-      </ul>
-    </div>
-    <div id="input" class="big-section">
-      <h2>Input</h2>
-      <input type="text" placeholder="Input" />
-      <div class="form-group">
-        <label for="input">Label</label>
-        <input type="text" id="input" />
+    </section>
+
+  </main>
+
+  <footer class="container-lg pv-lg">
+    <div class="card paper row wrap align-center justify-between gap-sm">
+      <div class="col gap-xs">
+        <strong>Linwood Style</strong>
+        <span>A lightweight SCSS framework released under the MIT License.</span>
       </div>
-      <div class="form-group">
-        <label for="input">Number</label>
-        <input type="number" id="input" />
-      </div>
-      <div class="form-group">
-        <input type="checkbox" id="scales" name="scales" checked />
-        <label for="scales">Scales</label>
-      </div>
+      <nav class="row wrap gap-xs" aria-label="Footer navigation">
+        <a class="btn" href="https://github.com/LinwoodDev/style">Source</a>
+        <a class="btn" href="https://github.com/LinwoodDev/style/issues">Issues</a>
+        <a class="btn secondary" href="https://www.npmjs.com/package/@linwooddev/style">npm</a>
+      </nav>
     </div>
-  </div>
+  </footer>
 </Layout>

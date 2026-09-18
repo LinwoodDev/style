@@ -1,6 +1,9 @@
 {
   "private": true,
   "scripts": {
+    "build": "pnpm --recursive --if-present build",
+    "check": "pnpm --recursive --if-present check && pnpm --filter docs build",
+    "dev": "pnpm --filter docs dev",
     "ci:version": "changeset version",
     "ci:publish": "changeset publish"
   },
