@@ -4,8 +4,7 @@
     "build": "pnpm --recursive --if-present build",
     "check": "pnpm --recursive --if-present check && pnpm --filter docs build",
     "dev": "pnpm --filter docs dev",
-    "ci:version": "changeset version",
-    "ci:publish": "changeset publish"
+    "ci:version": "changeset version"
   },
   "devDependencies": {
     "@changesets/cli": "^3.0.2"
