@@ -42,5 +42,3 @@ jobs:
           pr-title: "chore: update versions"
           publish-script: pnpm ci:publish
           create-github-releases: true
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
