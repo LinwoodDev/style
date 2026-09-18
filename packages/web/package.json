@@ -1,7 +1,7 @@
 {
   "name": "@linwooddev/style",
   "description": "A lightweight, customizable SCSS design system for Linwood web projects.",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "scripts": {
     "check": "sass --no-source-map scss/:css/",
     "watch": "sass --watch scss/:css/",
