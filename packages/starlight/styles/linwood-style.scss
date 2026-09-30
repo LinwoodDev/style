@@ -145,6 +145,9 @@ a {
 .social-icons a {
   @extend .secondary;
   @include lw.button-base();
+  inline-size: lw.$control-min-size;
+  block-size: lw.$control-min-size;
+  flex-shrink: 0;
   padding: 0.5rem;
   border-radius: 50%;
 }
