@@ -1,33 +1,56 @@
 ---
 import { LinkCard } from "@astrojs/starlight/components";
+import { getRelativeLocaleUrl, pathHasLocale } from "astro:i18n";
 
 export interface Props {
   title: string;
   href: string;
-  after?: string;
+  /** Render an ordinary link instead of a file download. */
+  download?: boolean;
+  /** Post-download destination, or false to stay on the current page. */
+  after?: string | false;
 }
 
-const { title, href, after } = Astro.props;
+const { title, href, download = true, after = "/downloads/thank-you/" } = Astro.props;
+let afterUrl = download && after ? after : undefined;
+
+// Keep unprefixed installation pages in the current language. Explicit locales,
+// external URLs, query parameters, and fragments are preserved.
+if (afterUrl?.startsWith("/") && !afterUrl.startsWith("//") && Astro.currentLocale) {
+  const boundary = afterUrl.search(/[?#]/);
+  const pathname = boundary === -1 ? afterUrl : afterUrl.slice(0, boundary);
+  const suffix = boundary === -1 ? "" : afterUrl.slice(boundary);
+  if (!pathHasLocale(pathname.split("/")[1] ?? "")) {
+    afterUrl = getRelativeLocaleUrl(Astro.currentLocale, pathname.slice(1)) + suffix;
+  }
+}
 ---
 
 <LinkCard
   title={title}
   href={href}
-  download
+  download={download ? true : undefined}
   target="_blank"
-  data-download
-  data-after={after}
+  data-download={download ? "" : undefined}
+  data-after={afterUrl}
 />
 
-<script lang="ts" is:inline>
-  const downloadButtons = document.querySelectorAll("[data-download]");
-
-  downloadButtons.forEach((button) => {
-    const after = button.getAttribute("data-after");
-    button.addEventListener("click", () => {
-      setTimeout(() => {
-        window.location.href = after ?? "/downloads/thank-you";
-      }, 500);
-    });
+<script>
+  // One delegated handler also works for buttons added by client-side navigation.
+  document.addEventListener("click", (event) => {
+    if (
+      event.defaultPrevented ||
+      event.button !== 0 ||
+      event.ctrlKey ||
+      event.metaKey ||
+      event.shiftKey ||
+      event.altKey ||
+      !(event.target instanceof Element)
+    )
+      return;
+    const button = event.target.closest<HTMLAnchorElement>("a[data-download]");
+    const after = button?.dataset.after;
+    if (!after) return;
+    setTimeout(() => window.location.assign(after), 500);
   });
 </script>

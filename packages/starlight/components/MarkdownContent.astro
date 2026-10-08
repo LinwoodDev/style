@@ -1,0 +1,12 @@
+---
+import StarlightMarkdownContent from "@astrojs/starlight/components/MarkdownContent.astro";
+import { getLinkLocalizer } from "../utils/localized-links";
+import { localizeContentLinks } from "../utils/content-links";
+
+const localize = await getLinkLocalizer(Astro.currentLocale);
+const content = localizeContentLinks(await Astro.slots.render("default"), localize);
+---
+
+<StarlightMarkdownContent {...Astro.props}>
+  <Fragment set:html={content} />
+</StarlightMarkdownContent>
