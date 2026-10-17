@@ -1,0 +1,11 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import "../styles/landing.scss";
+
+type Props = HTMLAttributes<"div">;
+const { class: className, ...attributes } = Astro.props;
+---
+
+<div {...attributes} class:list={["linwood-landing", className]}>
+  <slot />
+</div>

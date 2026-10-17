@@ -36,6 +36,51 @@ HTML download attribute and the post-download redirect regardless of `after`.
 <DownloadButton title="Web app" href="https://app.example.com" download={false} />
 ```
 
+## Landing pages
+
+Use `Landing` in a Starlight splash page to opt into a wide content area,
+responsive hero spacing, centered section headings, and a compact principles
+list. The styles are loaded by the component and only affect pages using the
+layout. Keep site colors and content in the consuming project.
+
+```mdx
+import Landing from "@linwooddev/starlight-style/components/Landing.astro";
+import LandingFeature from "@linwooddev/starlight-style/components/LandingFeature.astro";
+import screenshot from "../../assets/screenshot.png";
+
+<Landing>
+  <ul class="landing-principles" aria-label="At a glance">
+    <li>Open source</li>
+    <li>Available offline</li>
+  </ul>
+
+  <LandingFeature image={screenshot} alt="The app workspace">
+
+    ## Make room for your ideas
+
+    Describe the feature beside its screenshot.
+
+  </LandingFeature>
+
+  <div class="landing-heading">
+
+    ## Explore the possibilities
+
+    Introduce the next section of cards or links.
+
+  </div>
+
+  <p class="landing-community">Link to the project's community.</p>
+</Landing>
+```
+
+`Landing` accepts standard HTML attributes, including an additional `class`.
+`LandingFeature` requires an imported Astro image as `image` and descriptive
+`alt` text. Pass `reverse` to put the image first on wide screens; the content
+returns to copy-then-image order on phones. An optional imported `darkImage`
+switches the screenshot with Starlight's theme. Images are optimized as
+responsive WebP assets and loaded lazily.
+
 ## Translations and navigation
 
 The plugin keeps root-relative documentation links in the selected language,

@@ -1,0 +1,103 @@
+html:has(.linwood-landing) {
+  --sl-content-width: 86rem;
+
+  .hero {
+    padding-block: clamp(2rem, 6vw, 5rem);
+  }
+
+  .hero .tagline {
+    max-width: 36rem;
+    text-wrap: pretty;
+  }
+
+  .landing-principles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem 2rem;
+    padding: 1rem;
+    margin: 0;
+    list-style: none;
+    border-block: 1px solid var(--sl-color-gray-5);
+    color: var(--sl-color-text);
+    font-size: 0.95rem;
+
+    li {
+      margin: 0;
+    }
+  }
+
+  .landing-heading {
+    max-width: 46rem;
+    margin: 4rem auto 2rem;
+    text-align: center;
+    text-wrap: balance;
+
+    h2 {
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      line-height: 1.15;
+    }
+  }
+
+  .landing-community {
+    margin-top: 2rem;
+    text-align: center;
+  }
+}
+
+.landing-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
+  margin-block: clamp(2.5rem, 6vw, 5rem);
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 1.5rem;
+  background: var(--sl-color-bg-nav);
+}
+
+.landing-feature.reverse {
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.8fr);
+}
+
+.landing-feature.reverse .landing-feature__visual {
+  order: -1;
+}
+
+.landing-feature__copy :is(h2, h3) {
+  margin-top: 0;
+  font-size: clamp(1.75rem, 2.7vw, 2.25rem);
+  line-height: 1.12;
+  text-wrap: balance;
+}
+
+.landing-feature__copy p:last-child {
+  margin-bottom: 0;
+}
+
+.landing-feature__visual {
+  min-width: 0;
+  margin: 0;
+}
+
+.landing-feature__visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 0.75rem;
+  box-shadow: var(--sl-shadow-lg);
+}
+
+@media (max-width: 50rem) {
+  .landing-feature,
+  .landing-feature.reverse {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .landing-feature.reverse .landing-feature__visual {
+    order: initial;
+  }
+}
