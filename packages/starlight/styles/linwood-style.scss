@@ -22,17 +22,17 @@ br {
   --sl-font-system: "Inter Variable", sans-serif;
   --ls-primary: var(--sl-color-accent);
   --ls-primary-text: #fff;
-  --sl-color-accent-low: var(--sl-color-accent);
-  --sl-color-accent-high: var(--sl-color-accent);
   --sl-color-black: var(--ls-background);
-  --sl-color-gray-1: var(--ls-elevation);
-  --sl-color-gray-2: var(--ls-elevation);
-  --sl-color-gray-3: var(--ls-elevation);
-  --sl-color-gray-4: var(--ls-elevation);
-  --sl-color-gray-5: var(--ls-elevation);
-  --sl-color-gray-6: var(--ls-elevation);
-  --sl-color-gray-7: var(--ls-elevation);
   --sl-color-text: var(--ls-background-text);
+  --sl-color-gray-1: color-mix(in srgb, var(--ls-background-text) 94%, var(--ls-background));
+  --sl-color-gray-2: color-mix(in srgb, var(--ls-background-text) 86%, var(--ls-background));
+  --sl-color-gray-3: color-mix(in srgb, var(--ls-background-text) 68%, var(--ls-background));
+  --sl-color-gray-4: color-mix(in srgb, var(--ls-background-text) 42%, var(--ls-background));
+  --sl-color-gray-5: color-mix(in srgb, var(--ls-background-text) 20%, var(--ls-background));
+  --sl-color-gray-6: color-mix(in srgb, var(--ls-background-text) 6%, var(--ls-background));
+  --sl-color-gray-7: color-mix(in srgb, var(--ls-background-text) 3%, var(--ls-background));
+  --sl-color-accent-low: color-mix(in srgb, var(--sl-color-accent) 18%, var(--ls-background));
+  --sl-color-accent-high: color-mix(in srgb, var(--sl-color-accent) 38%, var(--ls-background-text));
 }
 :root[data-theme="light"] {
   --ls-elevation: rgba(0, 0, 0, 0.1);
@@ -57,8 +57,42 @@ a.btn {
   @include lw.button-base;
 }
 
-.sl-markdown-content a:not(:where(.not-content *)) {
-  @include lw.link-base;
+/* Imported documents supply their own title; do not reserve an empty title panel. */
+.content-panel:has(> .sl-container > h1#_top:empty) {
+  display: none;
+}
+
+.sl-markdown-content {
+  a:not(:where(.not-content *, .sl-link-card *, .sl-link-button)) {
+    @include lw.link-base;
+    color: var(--sl-color-text-accent);
+  }
+
+  a:hover:not(:where(.not-content *, .sl-link-card *, .sl-link-button)) {
+    color: var(--sl-color-white);
+  }
+
+  /* Long reference tables scroll inside the article instead of squeezing words. */
+  table:not(:where(.not-content *)) {
+    max-inline-size: 100%;
+    scrollbar-width: thin;
+    scrollbar-color: var(--sl-color-gray-4) transparent;
+    overscroll-behavior-inline: contain;
+  }
+
+  :is(th, td):not(:where(.not-content *)) {
+    min-inline-size: 9ch;
+    vertical-align: top;
+  }
+
+  :is(th, td):last-child:not(:where(.not-content *)),
+  :is(th, td):nth-child(n + 3):not(:last-child):not(:where(.not-content *)) {
+    min-inline-size: 20ch;
+  }
+
+  :is(th, td) code:not(:where(.not-content *)) {
+    white-space: nowrap;
+  }
 }
 
 .actions {
@@ -104,6 +138,7 @@ option {
   li a {
     @include lw.button-base;
     justify-content: start;
+    text-align: start;
   }
   [aria-current='page'],
   [aria-current='page']:hover,
@@ -122,16 +157,10 @@ option {
   gap: 1.5rem;
 }
 
-span {
-  --sl-color-gray-2: var(--ls-background-text);
-}
-
 a {
-  --sl-color-gray-3: var(--ls-background-text);
-  --sl-color-gray-2: var(--ls-background-text);
-
   &[aria-current="true"] {
-    color: var(--ls-primary);
+    color: var(--sl-color-text-accent);
+    font-weight: 600;
   }
   .tab &:hover {
     text-decoration: none;
@@ -156,6 +185,114 @@ a {
   border-radius: 1rem;
 }
 
-.description {
-  --sl-color-gray-3: color-mix(in srgb, var(--ls-background-text) 78%, transparent);
+.sl-link-card {
+  --sl-color-gray-5: var(--ls-elevation);
+  min-inline-size: 0;
+  border-color: var(--sl-color-gray-5);
+
+  .icon {
+    color: var(--sl-color-gray-3);
+  }
+
+  .description {
+    color: var(--sl-color-gray-2);
+  }
+
+  &:hover {
+    background: var(--ls-elevation);
+    border-color: var(--sl-color-gray-5);
+  }
+
+  &:hover .icon {
+    color: var(--sl-color-white);
+  }
+
+  a:focus-visible {
+    outline: lw.$focus-ring-width solid var(--sl-color-accent);
+    outline-offset: 3px;
+    border-radius: 0.125rem;
+  }
+}
+
+.sl-link-card:has(a.landing-action) {
+  border-color: color-mix(in srgb, var(--sl-color-accent) 30%, var(--sl-color-gray-5));
+  background: color-mix(in srgb, var(--sl-color-accent) 5%, var(--sl-color-bg));
+
+  .title {
+    color: var(--sl-color-white);
+  }
+
+  .description,
+  .icon {
+    color: var(--sl-color-gray-2);
+  }
+
+  &:hover,
+  &:focus-within {
+    border-color: color-mix(in srgb, var(--sl-color-accent) 50%, var(--sl-color-gray-5));
+    background: color-mix(in srgb, var(--sl-color-accent) 8%, var(--sl-color-bg));
+  }
+
+  &:focus-within {
+    outline: 2px solid var(--sl-color-accent);
+    outline-offset: 2px;
+  }
+}
+
+.sl-menu-button,
+starlight-menu-button button {
+  color: var(--sl-color-white);
+  background: var(--sl-color-bg-nav);
+  border: 1px solid var(--sl-color-gray-5);
+}
+
+/* Leave room for Pagefind's search icon when applying the shared input styles. */
+site-search .pagefind-ui__search-input {
+  padding-inline-start: 3rem;
+
+  &::placeholder {
+    color: var(--sl-color-gray-3);
+    opacity: 1;
+  }
+}
+
+/* The site footer shares the article's spacing and stays compact on phones. */
+.real-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem 1.5rem;
+  margin: 3rem auto 0;
+  padding-block: 1.25rem;
+  border-top: 1px solid var(--sl-color-gray-5);
+
+  img { display: block; }
+
+  .row,
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem 1.5rem;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--sl-color-white);
+    text-decoration: none;
+
+    &:hover { text-decoration: none; }
+  }
+
+  .btn {
+    color: var(--sl-color-gray-2);
+    font-weight: 500;
+    text-decoration: none;
+
+    &:hover { color: var(--sl-color-white); text-decoration: underline; }
+  }
 }
