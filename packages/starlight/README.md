@@ -158,6 +158,33 @@ to use another root language. Adding `de.json` enables `/de/` with native fallba
 pages until content is translated. There is no separate language registry to
 maintain. This helper is optional; sites can also configure Starlight themselves.
 
+### Visitor language detection
+
+Language discovery configures which languages the site supports. To also select
+an appropriate language for visitors opening an unprefixed page, opt in with:
+
+```js
+starlight({
+  ...i18n,
+  plugins: [linwoodStarlight({ detectLanguage: true })],
+});
+```
+
+On static sites this detects the browser language and shows a small, dismissible
+suggestion on unprefixed pages. The page stays in its current language until the
+visitor chooses the suggested language. The popup uses native language names and
+Starlight's translated language-selection labels. It never redirects automatically.
+
+The native picker and suggestion buttons remember explicit choices, including
+English. Already-prefixed URLs are respected, and regional preferences choose
+the closest supported variant (for example, `zh-TW` offers `zh-Hant`). Choosing a
+language preserves query parameters and fragments.
+
+The suggestion uses Starlight's alternate-language links and also works after
+ClientRouter navigation and with custom Head components. It is disabled by
+default, requires a root locale and multiple supported languages, and is
+independent of the optional i18n collection and math support.
+
 `createTranslations()` accepts either a directory URL (with a trailing slash)
 or an object of dictionaries keyed by language tag. Directory loading reads
 flat JSON string dictionaries at build time and ignores files starting with `_`.

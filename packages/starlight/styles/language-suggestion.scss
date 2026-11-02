@@ -1,0 +1,63 @@
+.linwood-language-suggestion {
+  position: fixed;
+  inset-inline-end: 1rem;
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  z-index: 50;
+  width: min(22rem, calc(100vw - 2rem));
+  padding: 1rem;
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 0.85rem;
+  background: var(--sl-color-bg-nav);
+  color: var(--sl-color-text);
+  box-shadow: 0 0.5rem 2rem rgb(0 0 0 / 20%);
+  font-size: var(--sl-text-sm);
+}
+
+.linwood-language-suggestion__title {
+  margin: 0 1.5rem 0.8rem 0;
+  font-weight: 600;
+}
+
+.linwood-language-suggestion__close {
+  position: absolute;
+  top: 0.35rem;
+  inset-inline-end: 0.45rem;
+  padding: 0.2rem 0.45rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.linwood-language-suggestion__choices {
+  display: flex;
+  gap: 0.6rem;
+
+  > * {
+    flex: 1;
+    min-width: 0;
+    padding: 0.55rem 0.75rem;
+    border: 1px solid var(--sl-color-gray-4);
+    border-radius: 0.5rem;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  > .linwood-language-suggestion__accept {
+    border-color: transparent;
+    background: var(--sl-color-text-accent);
+    color: var(--sl-color-bg);
+    font-weight: 600;
+  }
+}
+
+.linwood-language-suggestion :is(a, button):focus-visible {
+  outline: 2px solid var(--sl-color-text-accent);
+  outline-offset: 3px;
+}
