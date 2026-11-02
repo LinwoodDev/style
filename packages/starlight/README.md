@@ -18,6 +18,21 @@ Use the shared content collection from `src/content.config.ts`:
 export { collections } from "@linwooddev/starlight-style/content";
 ```
 
+The `collections` export registers only Starlight's `docs` collection. Internationalization
+is optional. Opt in to the native `i18n` collection with `createCollections(en)`;
+this also validates custom keys while allowing partial translations:
+
+```ts
+import { createCollections } from "@linwooddev/starlight-style/content";
+import en from "./content/i18n/en.json";
+
+export const collections = createCollections(en);
+```
+
+Use `createCollections({})` to enable i18n without custom UI keys. Sites without
+UI dictionaries can keep the default `collections` export and do not need an
+`src/content/i18n/` directory or any translation helper calls.
+
 The download component is available as
 `@linwooddev/starlight-style/components/DownloadButton.astro`.
 
@@ -35,6 +50,25 @@ HTML download attribute and the post-download redirect regardless of `after`.
 <DownloadButton title="Archive" href="/releases/app.zip" after={false} />
 <DownloadButton title="Web app" href="https://app.example.com" download={false} />
 ```
+
+## Markdown
+
+The plugin adds explicit heading IDs in Markdown and MDX (`## Heading {#id}`)
+and GitHub's `:warning:`, `:white_check_mark:`, and `:x:` emoji replacements to
+Starlight's default Sätteri pipeline. Existing processor features and plugins
+are preserved. Sites using another Markdown processor keep their configuration.
+
+Math is disabled by default. Opt in to math syntax, KaTeX rendering, and its
+stylesheet and fonts with:
+
+```js
+starlight({
+  plugins: [linwoodStarlight({ math: true })],
+});
+```
+
+The site does not need its own KaTeX dependency, Markdown plugins, or MDX Vite
+transform. UI translation collections are a separate opt-in.
 
 ## Landing pages
 
@@ -89,30 +123,51 @@ rewrites links to pages in the site's `docs` content collection. External URLs,
 explicitly localized paths, fragments, and static assets are preserved.
 Page content stays in the site's normal Starlight/Crowdin files.
 
-Pass existing UI dictionaries keyed by BCP-47 language tag to the plugin:
+Use [Starlight's native i18n collection](https://starlight.astro.build/guides/i18n/)
+for site UI strings. Keep dictionaries in `src/content/i18n/` and name them with
+the configured BCP-47 `lang` tag (`en.json`, `pt-BR.json`, `zh-Hant.json`). Content
+locale paths can differ (`pt-br/`, `zh-hant/`). Render strings with
+`Astro.locals.t("key")`; Starlight supplies its built-in translations and fallback.
+
+Use locale-independent slugs for internal sidebar links. Starlight automatically
+reads translated page titles and `sidebar.label` frontmatter. Group headings and
+intentional label overrides can reuse the native dictionaries:
 
 ```js
-import english from "./src/translations/en.json";
-import french from "./src/translations/fr.json";
 import linwoodStarlight from "@linwooddev/starlight-style";
-import { createTranslations } from "@linwooddev/starlight-style/translations";
+import { createI18n } from "@linwooddev/starlight-style/translations";
 
-const translations = { en: english, fr: french };
-const { getSidebarTranslatedLabel } = createTranslations(translations);
+const { config: i18n, getSidebarTranslatedLabel } = createI18n(
+  new URL("./src/content/i18n/", import.meta.url),
+);
 
 starlight({
-  plugins: [linwoodStarlight({ translations })],
+  ...i18n,
+  plugins: [linwoodStarlight()],
   sidebar: [
     { ...getSidebarTranslatedLabel("Guides"), items: ["intro"] },
-    { ...getSidebarTranslatedLabel("Nightly builds", "nightly"), link: "/nightly/" },
+    { ...getSidebarTranslatedLabel("Nightly builds", "nightly"), slug: "nightly" },
   ],
 });
 ```
 
-The dictionaries are injected with Starlight's `i18n:setup` hook and are available
-through `Astro.locals.t()`, with Starlight's normal translation fallback.
-The default Linwood footer uses `imprint` and `privacy_policy` from these
-dictionaries, with English defaults supplied by the plugin.
+`createI18n()` derives Starlight's locale list, native language names, lower-case
+content paths, and text direction from the dictionaries. English is the root and
+fallback language by default; pass `{ defaultLocale: "fr" }` as a second argument
+to use another root language. Adding `de.json` enables `/de/` with native fallback
+pages until content is translated. There is no separate language registry to
+maintain. This helper is optional; sites can also configure Starlight themselves.
+
+`createTranslations()` accepts either a directory URL (with a trailing slash)
+or an object of dictionaries keyed by language tag. Directory loading reads
+flat JSON string dictionaries at build time and ignores files starting with `_`.
+`loadTranslations(directory)` is also available when the dictionaries themselves
+are needed. Sidebar helpers return Starlight's native `translations` objects;
+missing or empty labels fall back to the configured `label`.
+
+The default Linwood footer uses `imprint` and `privacy_policy`, with English
+defaults supplied by the plugin. The plugin's `translations` option remains
+available for existing integrations; native site dictionaries take precedence.
 
 Sidebar collapse and scroll state are preserved across full-page and Astro
 ClientRouter navigation. The site can add `ClientRouter` in its Head component.

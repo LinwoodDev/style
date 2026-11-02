@@ -1,8 +1,11 @@
 import type { StarlightPlugin } from "@astrojs/starlight/types";
 import type { TranslationDictionaries } from "./translations";
 import { uiStrings } from "./ui-strings";
+import { createMarkdownIntegration, getMathStyles } from "./utils/markdown";
 
 export interface Options {
+  /** Enable math syntax and KaTeX rendering and styles. Disabled by default. */
+  math?: boolean;
   /** UI dictionaries keyed by BCP-47 language tag, for example Crowdin JSON files. */
   translations?: TranslationDictionaries;
 }
@@ -15,7 +18,8 @@ export default function createPlugin(options: Options = {}): StarlightPlugin {
         injectTranslations(uiStrings);
         if (options.translations) injectTranslations(options.translations);
       },
-      "config:setup": ({ config, updateConfig, addRouteMiddleware }) => {
+      "config:setup": ({ config, updateConfig, addRouteMiddleware, addIntegration }) => {
+        addIntegration(createMarkdownIntegration({ math: options.math }));
         addRouteMiddleware({
           entrypoint: "@linwooddev/starlight-style/route-middleware",
           order: "post",
@@ -24,6 +28,7 @@ export default function createPlugin(options: Options = {}): StarlightPlugin {
           customCss: [
             "@fontsource-variable/inter",
             "@linwooddev/starlight-style/styles/linwood-style.scss",
+            ...getMathStyles(options.math),
             ...(config.customCss ?? []),
           ],
           components: {
